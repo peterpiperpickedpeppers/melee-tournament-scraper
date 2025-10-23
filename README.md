@@ -1,2 +1,0 @@
-# melee-tournament-scraper
-
