@@ -11,18 +11,38 @@ import os
 import time
 import pandas as pd
 from dotenv import load_dotenv
-from utils.api_utils import parse_result_string, extract_competitor, process_raw_pairings_list, make_payload, get_round_ids
+from utils.api_utils import (
+    parse_result_string,
+    extract_competitor,
+    process_raw_pairings_list,
+    make_payload,
+    get_round_ids,
+)
+from pathlib import Path
+import re
+import time
+from datetime import datetime
 
 load_dotenv()
 
-# configuration
-EVENT_ID = 248718
+# configuration (allow overrides via environment variables)
+EVENT_ID = int(os.environ.get("EVENT_ID", 248718))
 ROUND_IDS = get_round_ids(requests.Session(), EVENT_ID, mode="pairings")
 BASE_URL = "https://melee.gg/Match/GetRoundMatches/{round_id}"
-OUTPUT_CSV_FILE = r"C:\Users\jjwey\OneDrive\Desktop\all_tournament_pairings.csv"
+# default output into data/ unless orchestrated into an event-specific folder
+base_data_dir = Path(__file__).resolve().parents[1] / "data"
+event_data_dir = Path(os.environ.get("EVENT_DATA_DIR", base_data_dir))
+matchups_dir = event_data_dir / "matchups"
+matchups_dir.mkdir(parents=True, exist_ok=True)
+
+# include event name in filename and write into the event root (data/<event>)
+event_name = os.environ.get("EVENT_NAME", "event")
+# sanitize for filesystem
+sanitized_event = re.sub(r'[<>:"/\\|?*]', '_', event_name)
+OUTPUT_CSV_FILE = event_data_dir / f"{sanitized_event} pairings.csv"
 COOKIE = os.environ.get("MELEE_COOKIE")
-PAGE_SIZE = 400
-DELAY_S = 0.5
+PAGE_SIZE = int(os.environ.get("PAGE_SIZE") or 400)
+DELAY_S = float(os.environ.get("DELAY_S") or 1)
 
 # main fetching logic
 
@@ -54,7 +74,7 @@ def fetch_all_rounds_data():
         round_records = 0
         
         while True:
-            payload = make_payload(start=start, length=PAGE_SIZE)
+            payload = make_payload(start=start, length=PAGE_SIZE) # type: ignore
             
             try:
                 print(f"Round {round_id} - Fetching page {page_num} (start={start})...")
@@ -82,12 +102,12 @@ def fetch_all_rounds_data():
                 round_records += n_fetched
                 
                 # Stop condition
-                if n_fetched < PAGE_SIZE:
+                if n_fetched < PAGE_SIZE: # type: ignore
                     break
                     
-                start += PAGE_SIZE
+                start += PAGE_SIZE # type: ignore
                 page_num += 1
-                time.sleep(DELAY_S) 
+                time.sleep(DELAY_S)  # type: ignore
 
             except requests.exceptions.RequestException as e:
                 print(f"Request failed for Round {round_id} on page {page_num}: {e}")
@@ -126,6 +146,20 @@ def fetch_all_rounds_data():
     else:
         print("No data collected successfully.")
 
+    return total_records
+
 
 if __name__ == "__main__":
-    fetch_all_rounds_data()
+    start_ts = time.time()
+    total = fetch_all_rounds_data()
+    duration = time.time() - start_ts
+    # append simple log
+    try:
+        logs_dir = Path(os.environ.get("EVENT_DATA_DIR", base_data_dir)) / "logs"
+        logs_dir.mkdir(parents=True, exist_ok=True)
+        now = datetime.utcnow().isoformat() + "Z"
+        log_line = f"{now} | script=fetch_pairings_api | event={sanitized_event} | event_id={EVENT_ID} | duration_s={duration:.3f} | rows={total} | out={OUTPUT_CSV_FILE}"
+        with (logs_dir / "fetch_pairings_api.log").open("a", encoding="utf-8") as fh:
+            fh.write(log_line + "\n")
+    except Exception as e:
+        print(f"Failed to write pairings log: {e}")

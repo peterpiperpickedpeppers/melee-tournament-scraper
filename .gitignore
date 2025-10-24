@@ -182,3 +182,7 @@ cython_debug/
 
 # ignore old_scripts
 old_scripts/
+
+# ignore data folders
+data/
+logs/

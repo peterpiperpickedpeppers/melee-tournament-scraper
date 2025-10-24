@@ -1,345 +1,431 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Date    : `date +%Y-%m-%d %H:%M:%S`
-# @Author  : peterpiperpickedpeppers
-# @Link    : https://github.com/peterpiperpickedpeppers
+"""DecklistScraper: Extract card rows from deck view pages.
 
+Fetches a deck view page, extracts cards and the player name, and optionally
+saves the results in a combined CSV file.
+"""
 
+from typing import Any, Dict, List, Optional
+from pathlib import Path
+import os
 import requests
-import json
 import re
-from pprint import pprint
-from typing import Any, List, Dict
-from bs4 import BeautifulSoup
 import csv
+from bs4 import BeautifulSoup
+import csv as _csv
+from typing import Set
 
-URL = "https://melee.gg/Decklist/GetTournamentViewData/ae0cbfcc-2015-474f-9b7a-b3790026fef8"
+# Name suffixes to preserve (used in future normalization helpers)
+NAME_SUFFIXES = {"jr", "jr.", "sr", "sr.", "ii", "iii", "iv", "v"}
+import time
+from datetime import datetime
 
 
-def fetch_and_show(url: str = URL, save_file: str = "decklists_pretty.json") -> List[Any]:
-	"""Fetch URL, parse JSON, pretty-print it, extract a list of items, and save pretty JSON to a file.
+class DecklistScraper:
+    """Fetch a deck view and extract card rows and the player name.
 
-	Returns a Python list of items (if the top-level JSON is a list, that's returned; if it's a dict,
-	the first list-valued key's value is returned; otherwise the dict is wrapped into a single-item list).
-	"""
-	try:
-		r = requests.get(url, timeout=20)
-		r.raise_for_status()
-	except requests.RequestException as exc:
-		print(f"HTTP error when fetching {url}: {exc}")
-		raise
+    Methods:
+    - build_view_url(guid) -> str
+    - fetch_into_memory(url) -> payload dict with status_code, html, soup
+    - parse_cards_from_soup(soup) -> list of {card_name, qty, zone}
+    - extract_player_from_soup(soup) -> player display name or ""
+    - extract_cards_and_player(payload, guid) -> rows for CSV
+    - process_guids(guids, save_csv) -> list rows and optional CSV file
+    """
 
-	try:
-		data = r.json()
-	except ValueError as exc:
-		print("Response did not contain valid JSON:")
-		print(r.text[:1000])  # show a bit of the raw response
-		raise
+    def __init__(self, session: Optional[requests.Session] = None, view_url_template: str = "https://melee.gg/Decklist/View/{}"):
+        self.session = session or requests.Session()
+        self.view_url_template = view_url_template
 
-	# Pretty print to console (careful with very large payloads)
-	try:
-		print("=== Pretty JSON ===")
-		print(json.dumps(data, indent=2, ensure_ascii=False))
-	except Exception:
-		# fallback to pprint for non-serializable objects
-		pprint(data)
+    def build_view_url(self, guid: str) -> str:
+        return self.view_url_template.format(guid)
 
-	# Extract list of items
-	if isinstance(data, list):
-		items = data
-	elif isinstance(data, dict):
-		list_candidates = {k: v for k, v in data.items() if isinstance(v, list)}
-		if list_candidates:
-			first_key = next(iter(list_candidates))
-			items = data[first_key]
-		else:
-			items = [data]
-	else:
-		items = [data]
+    def fetch_into_memory(self, url: str, timeout: int = 20) -> Dict[str, Any]:
+        try:
+            r = self.session.get(url, timeout=timeout)
+        except Exception as e:
+            return {"status_code": None, "html": "", "soup": None, "error": e}
+        try:
+            soup = BeautifulSoup(r.text, "html.parser")
+        except Exception:
+            soup = None
+        return {"status_code": r.status_code, "html": r.text, "soup": soup}
 
-	# Save pretty JSON to file
-	try:
-		with open(save_file, "w", encoding="utf-8") as fh:
-			json.dump(data, fh, ensure_ascii=False, indent=2)
-		print(f"Saved pretty JSON to {save_file}")
-	except Exception as exc:
-		print(f"Failed to save JSON to {save_file}: {exc}")
+    def parse_cards_from_soup(self, soup: Optional[BeautifulSoup]) -> List[Dict[str, Any]]:
+        """Extract cards using heuristics (structured -> UL/LI -> text fallback).
 
-	return items
+        Returns a list of unique card dicts with combined quantities.
+        """
+        if soup is None:
+            return []
+        def parse_line(t: str, zone: str = "main") -> Optional[Dict[str, Any]]:
+            s = (t or "").strip()
+            if not s:
+                return None
+            m = re.match(r"^(\d+)[xX]?\s+(.*)$", s)
+            if m:
+                return {"card_name": m.group(2).strip(), "qty": int(m.group(1)), "zone": zone}
+            m2 = re.match(r"^(.+?)\s+[xX](\d+)$", s)
+            if m2:
+                return {"card_name": m2.group(1).strip(), "qty": int(m2.group(2)), "zone": zone}
+            return {"card_name": s, "qty": 1, "zone": zone}
+
+        def detect_zone_from_element(el) -> str:
+            """Detect whether an element is part of the 'side' or 'main' section.
+
+            Heuristics:
+            - If an ancestor's class or id contains 'side' or 'sideboard' -> 'side'
+            - If a nearby heading (previous h1..h6) contains 'side' -> 'side'
+            - Otherwise 'main'
+            """
+            # ancestor class/id check
+            cur = el
+            while cur is not None and getattr(cur, 'name', None) is not None:
+                attrs = getattr(cur, 'attrs', {}) or {}
+                for v in list(attrs.get('class', [])) + ([attrs.get('id')] if attrs.get('id') else []):
+                    if not v:
+                        continue
+                    if re.search(r"side(board)?|sideboard", str(v), flags=re.I):
+                        return "side"
+                cur = cur.parent
+            # previous heading check
+            for level in range(1, 7):
+                prev_h = el.find_previous(f"h{level}")
+                if prev_h and re.search(r"side(board)?|sideboard", prev_h.get_text(), flags=re.I):
+                    return "side"
+            return "main"
+
+        cards: List[Dict[str, Any]] = []
+
+        # 1) If the page groups cards into categories, honor those zones
+        cats = soup.select(".decklist-category")
+        if cats:
+            for cat in cats:
+                title_el = cat.select_one(".decklist-category-title")
+                zone = "side" if (title_el and re.search(r"side(board)?", title_el.get_text(), flags=re.I)) else "main"
+                for rec in cat.select(".decklist-record"):
+                    name_el = rec.select_one(".decklist-record-name")
+                    qty_el = rec.select_one(".decklist-record-quantity")
+                    if name_el:
+                        name = name_el.get_text(strip=True)
+                        qty = 1
+                        if qty_el:
+                            try:
+                                qty = int(qty_el.get_text(strip=True))
+                            except Exception:
+                                qty = 1
+                        cards.append({"card_name": name, "qty": qty, "zone": zone})
+
+        # 2) structured .decklist-record blocks (not grouped) with zone detection
+        if not cards:
+            for rec in soup.select(".decklist-record"):
+                name_el = rec.select_one(".decklist-record-name")
+                qty_el = rec.select_one(".decklist-record-quantity")
+                if name_el:
+                    name = name_el.get_text(strip=True)
+                    qty = 1
+                    if qty_el:
+                        try:
+                            qty = int(qty_el.get_text(strip=True))
+                        except Exception:
+                            qty = 1
+                    zone = detect_zone_from_element(rec)
+                    cards.append({"card_name": name, "qty": qty, "zone": zone})
+
+        # 3) UL/LI lists (use nearby heading text to guess sideboard)
+        if not cards:
+            for ul in soup.find_all("ul"):
+                prev_h = None
+                for level in range(1, 7):
+                    prev_h = ul.find_previous(f"h{level}")
+                    if prev_h:
+                        break
+                zone = "side" if (prev_h and re.search(r"side", prev_h.get_text(), flags=re.I)) else "main"
+                for li in ul.find_all("li"):
+                    parsed = parse_line(li.get_text(" ", strip=True), zone=zone)
+                    if parsed:
+                        cards.append(parsed)
+
+        # 4) text fallback: scan lines and switch to side when 'sideboard' appears
+        if not cards:
+            text = soup.get_text("\n", strip=True)
+            zone = "main"
+            for ln in text.splitlines():
+                if re.search(r"sideboard", ln, flags=re.I):
+                    zone = "side"
+                    continue
+                parsed = parse_line(ln, zone=zone)
+                if parsed:
+                    cards.append(parsed)
+
+        # combine duplicates (case-insensitive card name + zone)
+        combined: Dict[tuple, Dict[str, Any]] = {}
+        for r in cards:
+            key = (r["card_name"].strip().lower(), r["zone"])
+            if key in combined:
+                combined[key]["qty"] += r["qty"]
+            else:
+                combined[key] = {"card_name": r["card_name"].strip(), "qty": r["qty"], "zone": r["zone"]}
+        return list(combined.values())
+
+    def extract_player_from_soup(self, soup: Optional[BeautifulSoup]) -> str:
+        """Try several heuristics to find the deck owner/player name.
+
+        Order of attempts:
+        1. meta[name=description] or meta[property=og:description] -> parse "DeckTitle - Player - ..."
+        2. a few page-local selectors likely to contain the owner link
+        3. any profile link that doesn't look like a site header/organization link
+        4. .decklist-title fallback
+        """
+        if soup is None:
+            return ""
+
+        # 1) Try meta description (often: "DeckTitle - Player, Name - Format")
+        meta = soup.find("meta", attrs={"name": "description"}) or soup.find("meta", attrs={"property": "og:description"})
+        if meta:
+            content = str(meta.get("content") or "").strip()
+            if content:
+                parts = [p.strip() for p in content.split(" - ") if p.strip()]
+                if len(parts) >= 2:
+                    return parts[1]
+
+        # 2) Page-local selectors that are likely to contain the owner link
+        selectors = [
+            ".decklist-header a[href*='/Profile']",
+            ".decklist-info a[href*='/Profile']",
+            ".decklist-owner a[href*='/Profile']",
+            "a.decklist-author[href*='/Profile']",
+        ]
+        for sel in selectors:
+            a = soup.select_one(sel)
+            if a and a.get_text(strip=True):
+                return a.get_text(strip=True)
+
+        # 3) Look for any /Profile link but filter out header/organization links
+        for a in soup.select("a[href*='/Profile']"):
+            txt = a.get_text(strip=True)
+            if not txt:
+                continue
+            # ignore organization/dashboard style links
+            if re.search(r"organization|organizations|dashboard|settings", txt, flags=re.I):
+                continue
+            # ignore very long values
+            if len(txt) > 60:
+                continue
+            return txt
+
+        # 4) fallback to a visible title element
+        title = soup.select_one(".decklist-title")
+        if title:
+            return title.get_text(strip=True)
+
+        return ""
+
+    def extract_cards_and_player(self, payload: Dict[str, Any], guid: str) -> List[Dict[str, Any]]:
+        soup = payload.get("soup")
+        player = self.extract_player_from_soup(soup)
+        player = self.normalize_player_name(player)
+        cards = self.parse_cards_from_soup(soup)
+        rows: List[Dict[str, Any]] = []
+        for c in cards:
+            rows.append({"player": player, "card_name": c["card_name"], "qty": c["qty"], "zone": c["zone"], "deck_guid": guid})
+        return rows
+
+    def normalize_player_name(self, raw: str) -> str:
+        """Normalize player display names into 'First Last' with suffix handling.
+
+        Examples:
+        - 'Hulstine, liam' -> 'Liam Hulstine'
+        - 'Smith, John Jr.' -> 'John Smith Jr.'
+        - 'John Smith' -> 'John Smith'
+        Returns empty string if raw is falsy.
+        """
+        if not raw:
+            return ""
+        s = raw.strip()
+        # canonical suffix formatting
+        SUFFIX_MAP = {
+            "jr": "Jr.",
+            "jr.": "Jr.",
+            "sr": "Sr.",
+            "sr.": "Sr.",
+            "ii": "II",
+            "iii": "III",
+            "iv": "IV",
+            "v": "V",
+        }
+
+        # If format is 'Last, First [Suffix]' OR 'Last Suffix, First'
+        if "," in s:
+            parts = [p.strip() for p in s.split(",") if p.strip()]
+            if len(parts) >= 2:
+                last_part = parts[0]
+                rest_parts = parts[1:]
+
+                # check for suffix on the last part (e.g., 'Leal Jr.')
+                last_tokens = last_part.split()
+                suffix = ""
+                if last_tokens and last_tokens[-1].rstrip('.').lower() in SUFFIX_MAP:
+                    suffix = SUFFIX_MAP[last_tokens[-1].rstrip('.').lower()]
+                    last_name = " ".join(last_tokens[:-1]) or last_tokens[0]
+                else:
+                    last_name = last_part
+
+                # Build rest tokens while allowing a standalone suffix part (e.g., 'Leal, Jr., Noe')
+                rest_tokens: List[str] = []
+                for part in rest_parts:
+                    t = part.strip()
+                    if not t:
+                        continue
+                    if t.rstrip('.').lower() in SUFFIX_MAP:
+                        suffix = SUFFIX_MAP[t.rstrip('.').lower()]
+                        continue
+                    rest_tokens.extend(t.split())
+
+                # final check: trailing suffix token in rest_tokens (e.g., 'John Jr.')
+                if rest_tokens and rest_tokens[-1].rstrip('.').lower() in SUFFIX_MAP:
+                    suffix = SUFFIX_MAP[rest_tokens[-1].rstrip('.').lower()]
+                    rest_tokens = rest_tokens[:-1]
+
+                first_and_middle = " ".join(rest_tokens)
+                name = (first_and_middle + " " + last_name).strip()
+                if suffix:
+                    name = f"{name} {suffix}"
+                # Title-case each word (simple heuristic)
+                return " ".join([w.capitalize() for w in name.split()])
+
+        # No comma: assume 'First Last' or similar. Normalize whitespace and capitalization
+        tokens = s.split()
+        if not tokens:
+            return ""
+        # handle trailing suffix token
+        suffix = ""
+        if tokens and tokens[-1].rstrip('.').lower() in SUFFIX_MAP:
+            suffix = SUFFIX_MAP[tokens[-1].rstrip('.').lower()]
+            tokens = tokens[:-1]
+        name = " ".join(tokens)
+        if suffix:
+            name = f"{name} {suffix}"
+        return " ".join([w.capitalize() for w in name.split()])
+
+    def process_guids(self, guids: List[str], save_csv: Optional[Path] = None) -> List[Dict[str, Any]]:
+        rows: List[Dict[str, Any]] = []
+        for guid in guids:
+            url = self.build_view_url(guid)
+            payload = self.fetch_into_memory(url)
+            if payload.get("status_code") != 200:
+                print(f"Warning: {guid} returned {payload.get('status_code')}")
+                continue
+            rows.extend(self.extract_cards_and_player(payload, guid))
+
+        if save_csv:
+            save_csv.parent.mkdir(parents=True, exist_ok=True)
+            with save_csv.open("w", encoding="utf-8", newline="") as fh:
+                if rows:
+                    writer = csv.DictWriter(fh, fieldnames=["player", "card_name", "qty", "zone", "deck_guid"], quoting=csv.QUOTE_MINIMAL)
+                    writer.writeheader()
+                    for r in rows:
+                        writer.writerow(r)
+            print("Saved combined CSV to", save_csv)
+
+        return rows
 
 
 if __name__ == "__main__":
-	items = fetch_and_show()
-	print(f"\nExtracted {len(items)} items. Showing up to 5 items:")
-	for i, it in enumerate(items[:5]):
-		print(f"Item {i}:")
-		pprint(it)
+    sample_guid = ["1cb305cb-c81e-4dce-ac4c-b32d00de6bcd", "09edec86-bc44-4ff1-95a7-b378004ea00d", "6a7ede40-da0c-4643-aa07-b37901544f86", "1133c3a9-32bb-4a16-9458-b37800b7b095"]
 
-	# Try to parse inner JSON string if present (many responses embed a JSON string in 'Json')
-	try:
-		top = json.load(open("decklists_pretty.json", encoding="utf-8"))
-	except Exception:
-		top = None
+    def load_guids_from_standings(path: Path) -> List[str]:
+        """Read a standings CSV and extract the `decklist_guid` column.
 
-	if top and isinstance(top, dict) and "Json" in top:
-		try:
-			inner = json.loads(top["Json"])
-		except Exception:
-			inner = None
+        Returns a deduped list preserving first-seen order. Non-empty strings only.
+        """
+        if not path.exists():
+            return []
+        guids: List[str] = []
+        seen: Set[str] = set()
+        try:
+            with path.open("r", encoding="utf-8-sig", newline="") as fh:
+                reader = _csv.DictReader(fh)
+                fieldnames = reader.fieldnames or []
+                lower_fields = [f.lower() for f in fieldnames]
+                if "decklist_guid" not in lower_fields:
+                    print(f"Warning: 'decklist_guid' column not found in {path}")
+                    return []
+                for row in reader:
+                    # handle case-insensitive header names
+                    val = ""
+                    for k, v in row.items():
+                        if k and k.lower() == "decklist_guid":
+                            val = (v or "").strip()
+                            break
+                    if not val:
+                        continue
+                    if val in seen:
+                        continue
+                    seen.add(val)
+                    guids.append(val)
+        except Exception as e:
+            print(f"Error reading {path}: {e}")
+            return []
+        return guids
 
-		if inner and isinstance(inner, dict):
-			# look for Standings -> list of players with DecklistGuid
-			standings = inner.get("Standings") or []
-			deck_guids = []
-			for s in standings:
-				guid = s.get("DecklistGuid")
-				name = s.get("PlayerName") or s.get("PlayerUsername")
-				if guid:
-					deck_guids.append((guid, name))
+    # prefer the latest standings file in data/ (allow EVENT_DATA_DIR override)
+    data_dir = Path(os.environ.get("EVENT_DATA_DIR") or (Path(__file__).resolve().parents[1] / "data"))
 
-			print(f"Found {len(deck_guids)} deck GUIDs to fetch details for.")
+    # 1) Prefer files that look like standings (contains 'standings') and are most recent
+    standings_candidates = sorted(data_dir.glob("*standings*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)
+    standings_path = None
+    guids: List[str] = []
 
-			session = requests.Session()
+    def _try_load_from(path: Path) -> List[str]:
+        try:
+            vals = load_guids_from_standings(path)
+            return vals
+        except Exception:
+            return []
 
-			def parse_card_lines(text: str) -> List[Dict[str, Any]]:
-				"""Parse lines like '4 Lightning Bolt' and detect sideboard blocks.
+    for cand in standings_candidates:
+        vals = _try_load_from(cand)
+        if vals:
+            standings_path = cand
+            guids = vals
+            break
 
-				Returns list of dicts: {name, qty:int, zone:'main'|'side'}
-				"""
-				lines = [l.strip() for l in text.splitlines()]
-				cards: List[Dict[str, Any]] = []
-				zone = "main"
-				for ln in lines:
-					if not ln:
-						continue
-					# detect sideboard header
-					if re.search(r"^sideboard[:\s]*$", ln, flags=re.I):
-						zone = "side"
-						continue
-					m = re.match(r"^(\d+)\s+[×xX]?\s*(.+)$", ln)
-					if m:
-						qty = int(m.group(1))
-						card = m.group(2).strip()
-						cards.append({"name": card, "qty": qty, "zone": zone})
-						continue
-						# lines like 'Card Name — 2' or 'Card Name x2' or '2 Card Name'
-						m4 = re.match(r"^(.+?)\s+[—-]\s*(\d+)$", ln)
-						if m4:
-							card = m4.group(1).strip()
-							qty = int(m4.group(2))
-							cards.append({"name": card, "qty": qty, "zone": zone})
-							continue
-					# fallback: lines like '2x Card Name' or 'Card Name x2' handled above partially
-					m2 = re.match(r"^(\d+)x\s+(.+)$", ln, flags=re.I)
-					if m2:
-						qty = int(m2.group(1))
-						card = m2.group(2).strip()
-						cards.append({"name": card, "qty": qty, "zone": zone})
-						continue
-					# try trailing quantity
-					m3 = re.match(r"^(.+?)\s+[×xX]\s*(\d+)$", ln)
-					if m3:
-						card = m3.group(1).strip()
-						qty = int(m3.group(2))
-						cards.append({"name": card, "qty": qty, "zone": zone})
-						continue
-					# otherwise ignore
-				return cards
+    # 2) If none of the 'standings' files contained guids, scan any CSVs in the folder
+    if not guids:
+        other_csvs = sorted(data_dir.glob("*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)
+        for cand in other_csvs:
+            vals = _try_load_from(cand)
+            if vals:
+                standings_path = cand
+                guids = vals
+                break
 
-			def fetch_deck_by_guid(sess: requests.Session, guid: str) -> List[Dict[str, Any]]:
-				"""Try multiple endpoints to fetch decklist data; return card dicts."""
-				tried = []
-				candidates = [
-					f"https://melee.gg/Decklist/GetDecklist/{guid}",
-					f"https://melee.gg/Decklist/Get/{guid}",
-					f"https://melee.gg/Decklist/GetDecklist?decklistGuid={guid}",
-					f"https://melee.gg/Decklist/View/{guid}",
-					f"https://melee.gg/Decklist/Details/{guid}",
-				]
-				for u in candidates:
-					try:
-						r = sess.get(u, timeout=20)
-					except Exception:
-						continue
-					tried.append((u, r.status_code, r.headers.get("Content-Type", "")))
-					if r.status_code != 200:
-						continue
-					ct = r.headers.get("Content-Type", "")
-					if "application/json" in ct or r.text.strip().startswith("{"):
-						try:
-							j = r.json()
-						except Exception:
-							# sometimes JSON is returned as a string inside a property
-							try:
-								j = json.loads(r.text)
-							except Exception:
-								continue
-						# possible shapes: {'Mainboard':[{'Name','Quantity'}], 'Sideboard':[...]}
-						cards = []
-						if isinstance(j, dict):
-							# common keys
-							if "Mainboard" in j or "Sideboard" in j:
-								main = j.get("Mainboard", []) or j.get("Main", []) or []
-								side = j.get("Sideboard", []) or j.get("Side", []) or []
-								for it in main:
-									# handle both dicts and strings
-									if isinstance(it, dict):
-										name = it.get("Name") or it.get("CardName") or it.get("name")
-										qty = it.get("Quantity") or it.get("Qty") or it.get("quantity") or 1
-									else:
-										# maybe '4 Lightning Bolt'
-										parsed = parse_card_lines(str(it))
-										if parsed:
-											for p in parsed:
-												cards.append({**p})
-											continue
-										name = str(it)
-										qty = 1
-									if name:
-										cards.append({"name": name, "qty": int(qty), "zone": "main"})
-								for it in side:
-									if isinstance(it, dict):
-										name = it.get("Name") or it.get("CardName") or it.get("name")
-										qty = it.get("Quantity") or it.get("Qty") or it.get("quantity") or 1
-									else:
-										parsed = parse_card_lines(str(it))
-										if parsed:
-											for p in parsed:
-												p["zone"] = "side"
-												cards.append({**p})
-											continue
-										name = str(it)
-										qty = 1
-									if name:
-										cards.append({"name": name, "qty": int(qty), "zone": "side"})
-								if cards:
-									return cards
-							# sometimes decklist returned as flat text under 'Decklist' or 'Json'
-							for k in ("Decklist", "Json", "Html"):
-								if k in j and isinstance(j[k], str):
-									txt = j[k]
-									parsed = parse_card_lines(txt)
-									if parsed:
-										return parsed
-						# fallback: no cards found in JSON response
-					# if HTML, try to parse lines
-					if "text/html" in ct or True:
-						soup = BeautifulSoup(r.text, "html.parser")
-						# robustly find divs where class attribute contains 'decklist-container'
-						deck_containers = []
-						for tag in soup.find_all('div'):
-							classes = tag.get('class') or []
-							if any('decklist-container' == c or 'decklist-container' in c for c in classes):
-								deck_containers.append(tag)
+    if standings_path:
+        print(f"Loading GUIDs from: {standings_path}")
+    else:
+        print("No standings file with 'decklist_guid' found in data/; using sample GUIDs")
+        guids = sample_guid
 
-						candidates_sel = []
-						if deck_containers:
-							for dc in deck_containers:
-								# structured extraction: first look for ul/li pairs
-								found = False
-								# if li elements exist, parse them with quantity spans if present
-								uls = dc.find_all('ul')
-								if uls:
-									for ul in uls:
-										# extract li entries, honoring spans for qty/name
-										txt_lines = []
-										for li in ul.find_all('li'):
-											# try structured qty span
-											qty = None
-											name = None
-											# common patterns: <li><span class="qty">4</span><span class="name">Card</span></li>
-											spans = li.find_all('span')
-											if spans and len(spans) >= 2:
-												# try find numeric span
-												for sp in spans:
-													scls = ' '.join(sp.get('class') or [])
-													if re.search(r'qty|count|quantity', scls, flags=re.I) or re.match(r'^[0-9]+$', sp.get_text(strip=True)):
-														qty = sp.get_text(strip=True)
-													else:
-														# treat as name if not numeric
-														if not name:
-															name = sp.get_text(strip=True)
-											if not name:
-												name = li.get_text(separator=' ').strip()
-											if qty:
-												txt_lines.append(f"{qty} {name}")
-											else:
-												txt_lines.append(name)
-										candidates_sel.append('\n'.join(txt_lines))
-									found = True
-								if found:
-									continue
+    scraper = DecklistScraper()
+    # include event name in decklist filename
+    raw_event_name = os.environ.get("EVENT_NAME", "event")
+    import re
+    sanitized_event = re.sub(r'[<>:"/\\|?*]', '_', raw_event_name)
+    out_path = data_dir / f"{sanitized_event} decklists.csv"
+    start_ts = time.time()
+    rows = scraper.process_guids(guids, save_csv=out_path)
+    duration = time.time() - start_ts
+    print("Parsed rows:", len(rows))
 
-								# headings + sibling lists
-								for h in dc.find_all(re.compile('^h[1-6]$')):
-									nxt = h.find_next_sibling()
-									if nxt and nxt.name == 'ul':
-										candidates_sel.append(nxt.get_text(separator='\n'))
-										found = True
-								if found:
-									continue
-
-								# column heuristics
-								cols = dc.find_all(class_=re.compile('col|column'))
-								if cols:
-									for col in cols:
-										candidates_sel.append(col.get_text(separator='\n'))
-									continue
-
-								# fallback to dc text
-								candidates_sel.append(dc.get_text(separator="\n"))
-						else:
-							# common fallback classes/ids
-							for sel in [".decklist", ".decklist-body", ".decklist-main", ".decklist-cards", "#decklist"]:
-								el = soup.select_one(sel)
-								if el:
-									candidates_sel.append(el.get_text(separator="\n"))
-						# also look for headings then ul/li pairs
-						if not candidates_sel:
-							# find headings like 'Mainboard' then following ul
-							for heading in soup.find_all(re.compile('^h[1-6]$')):
-								if heading and re.search(r"decklist|mainboard|sideboard|main|side", heading.get_text(), flags=re.I):
-									nxt = heading.find_next_sibling()
-									if nxt:
-										candidates_sel.append(nxt.get_text(separator="\n"))
-						# fallback: whole body text
-						if not candidates_sel:
-							candidates_sel.append(soup.get_text(separator="\n"))
-
-						for txt in candidates_sel:
-							parsed = parse_card_lines(txt)
-							if parsed:
-								return parsed
-
-				# nothing found
-				# print debug of tried endpoints
-				print(f"Tried endpoints for {guid}: {tried}")
-				return []
-
-			all_card_rows: List[Dict[str, Any]] = []
-			for guid, player in deck_guids:
-				print(f"Fetching deck {guid} for player {player}")
-				cards = fetch_deck_by_guid(session, guid)
-				if not cards:
-					print(f"No cards parsed for {guid}")
-				for c in cards:
-					all_card_rows.append({
-						"player": player,
-						"decklist_guid": guid,
-						"card_name": c["name"],
-						"qty": c["qty"],
-						"zone": c.get("zone", "main"),
-					})
-
-			# save CSV
-			if all_card_rows:
-				csv_file = "deck_cards.csv"
-				with open(csv_file, "w", newline="", encoding="utf-8") as fh:
-					writer = csv.DictWriter(fh, fieldnames=["player", "decklist_guid", "card_name", "qty", "zone"])
-					writer.writeheader()
-					for r in all_card_rows:
-						writer.writerow(r)
-				print(f"Saved {len(all_card_rows)} card rows to {csv_file}")
-			else:
-				print("No card rows extracted from any decklist.")
-
+    # write a minimal completion log with timestamp and duration
+    try:
+        logs_dir = data_dir / "logs"
+        logs_dir.mkdir(parents=True, exist_ok=True)
+        now = datetime.utcnow().isoformat() + "Z"
+        log_line = f"{now} | script=fetch_decklists_api | event={sanitized_event} | rows={len(rows)} | out={out_path} | duration_s={duration:.3f}"
+        with (logs_dir / "fetch_decklists_api.log").open("a", encoding="utf-8") as fh:
+            fh.write(log_line + "\n")
+    except Exception as e:
+        print(f"Failed to write decklists log: {e}")
