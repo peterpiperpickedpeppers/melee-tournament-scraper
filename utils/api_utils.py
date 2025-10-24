@@ -307,6 +307,8 @@ def extract_competitor(comp: dict):
         if players and isinstance(players, list):
             p = players[0] or {}
             name = p.get("DisplayName") or p.get("DisplayNameLastFirst") or p.get("Username")
+            if name:
+                name = name.strip()
     except Exception:
         pass
 
@@ -315,7 +317,9 @@ def extract_competitor(comp: dict):
     try:
         decks = comp.get("Decklists", [])
         if decks and isinstance(decks, list):
-            deck = decks[0].get("DecklistName")
+            deck_name = decks[0].get("DecklistName")
+            if deck_name:
+                deck = deck_name.strip()
     except Exception:
         pass
 

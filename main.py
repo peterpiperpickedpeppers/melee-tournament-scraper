@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """Orchestrator to run the three fetch scripts in order for a given event.
 
 Usage:
@@ -14,7 +15,6 @@ Behavior:
 """
 
 from __future__ import annotations
-
 import argparse
 import os
 import subprocess
