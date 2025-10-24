@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Orchestrator to run the three fetch scripts in order for a given event.
+"""Orchestrator to run the full pipeline for a given event.
 
 Usage:
     python main.py --event-id 12345 --event-name "My Event"
@@ -11,6 +11,11 @@ Behavior:
   1) scripts/fetch_standings_api.py
   2) scripts/fetch_pairings_api.py
   3) scripts/fetch_decklists_api.py
+  4) scripts/filter_pairings_by_archetype.py
+  5) scripts/create_matchups_files.py
+  6) scripts/create_aggregate_stats.py
+  7) scripts/create_win_matrix.py
+  8) scripts/create_win_matrix_heatmap.py
 - Exports environment variables so the scripts write into the event folder.
 """
 
@@ -46,7 +51,7 @@ def _append_log(log_path: Path, text: str) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description="Run standings, pairings, and decklist fetchers for an event.")
+    p = argparse.ArgumentParser(description="Run the full pipeline: fetch data, normalize, create matchups, aggregate stats, and generate visualizations.")
     p.add_argument("--event-id", required=True, help="Event ID to use when fetching (numeric).")
     p.add_argument("--event-name", required=True, help="Event name (used to create data/<event-name>/ folder).")
     p.add_argument("--python", default=sys.executable, help="Python executable to run the scripts (default: current interpreter).")
@@ -77,13 +82,22 @@ def main(argv: list[str] | None = None) -> int:
     logs_dir = event_dir / "logs"
     logs_dir.mkdir(parents=True, exist_ok=True)
 
-    # script order: standings -> pairings -> decklists
+    # script order: 
+    # 1) fetch standings, pairings, decklists
+    # 2) normalize pairings per-archetype
+    # 3) create matchup summaries
+    # 4) aggregate stats, win matrix, heatmap
     # We'll run them as modules (python -m scripts.fetch_standings_api) so imports like
     # `from utils.api_utils import ...` resolve from the repo root.
     modules = [
         "scripts.fetch_standings_api",
         "scripts.fetch_pairings_api",
         "scripts.fetch_decklists_api",
+        "scripts.filter_pairings_by_archetype",
+        "scripts.create_matchups_files",
+        "scripts.create_aggregate_stats",
+        "scripts.create_win_matrix",
+        "scripts.create_win_matrix_heatmap",
     ]
 
     for mod in modules:
