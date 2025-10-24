@@ -12,16 +12,14 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
 
-1. Create a `.env` from `.env.example` and fill in values (MELEE_COOKIE required to fetch):
+**Setup authentication:**
 
-- EVENT_ID: Melee event ID
-- EVENT_NAME: Human-friendly name used in output filenames
-- EVENT_DATA_DIR: Directory under `data/` for event artifacts
-- MELEE_COOKIE: Cookie string from your logged-in browser session
+1. Copy `.env.example` to `.env`
+2. Add your `MELEE_COOKIE` (see [Authentication](#authentication-and-cookies) below for how to get it)
 
-2. Run the full pipeline
+That's it! The cookie is the only required config when using `main.py`.
 
-**Option A: Use the orchestrator (recommended)**
+**Run the full pipeline:**
 
 ```bash
 python main.py --event-id 355905 --event-name "PT EoE 2025"
@@ -29,7 +27,22 @@ python main.py --event-id 355905 --event-name "PT EoE 2025"
 
 This runs all steps in order: fetch data → normalize → matchups → aggregate stats → win matrix → heatmap.
 
-**Option B: Run individual scripts**
+Artifacts are written to `data/<EVENT_NAME>/`.
+
+---
+
+### Alternative: Run individual scripts
+
+If you want to run scripts manually (e.g., for debugging), you'll need to set environment variables for EVENT_ID, EVENT_NAME, and EVENT_DATA_DIR in your `.env`:
+
+```bash
+# In .env (uncomment these only if running scripts individually)
+# EVENT_ID=355905
+# EVENT_NAME=PT EoE 2025
+# EVENT_DATA_DIR=./data/PT EoE 2025
+```
+
+Then run each script:
 
 ```bash
 # 1. Fetch data (requires MELEE_COOKIE)
@@ -48,20 +61,6 @@ python scripts/create_aggregate_stats.py
 python scripts/create_win_matrix.py
 python scripts/create_win_matrix_heatmap.py
 ```
-
-**Option C: VS Code tasks**
-
-Or in VS Code: open the Command Palette and run "Tasks: Run Task" to choose:
-
-- Fetch pairings
-- Filter results by archetype
-- Create matchups
-- Aggregate stats
-- Win matrix CSV
-- Win matrix heatmap
-- Run full pipeline
-
-Artifacts are written under `data/<EVENT_NAME>/`.
 
 ## Repository structure
 
