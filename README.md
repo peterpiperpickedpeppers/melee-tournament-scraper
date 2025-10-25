@@ -1,6 +1,6 @@
 # Melee Tournament Scraper
 
-End-to-end pipeline to fetch Melee pairings, normalize per-archetype results, build matchup summaries, and generate win-matrix visualizations.
+End-to-end pipeline to fetch Melee pairings, normalize per-archetype results, build matchup summaries, generate win-matrix visualizations, and compute per-card, per-copy winrates for every archetype.
 
 ## Quickstart
 
@@ -22,10 +22,10 @@ That's it! The cookie is the only required config when using `main.py`.
 **Run the full pipeline:**
 
 ```bash
-python main.py --event-id 355905 --event-name "PT EoE 2025"
+python main.py --event-id 248718 --event-name "RC Houston 2025"
 ```
 
-This runs all steps in order: fetch data → normalize → matchups → aggregate stats → win matrix → heatmap.
+This runs all steps in order: fetch data → normalize → matchups → aggregate stats → win matrix → heatmap → per-card winrates.
 
 Artifacts are written to `data/<EVENT_NAME>/`.
 
@@ -60,6 +60,9 @@ python scripts/create_matchups_files.py
 python scripts/create_aggregate_stats.py
 python scripts/create_win_matrix.py
 python scripts/create_win_matrix_heatmap.py
+
+# 5. Compute per-card, per-copy winrates (all archetypes)
+python scripts/create_card_winrates.py
 ```
 
 ## Repository structure
@@ -74,6 +77,7 @@ python scripts/create_win_matrix_heatmap.py
   - `create_aggregate_stats.py` – overall W/L/D per archetype (no mirrors)
   - `create_win_matrix.py` – CSV win matrix for top-N archetypes
   - `create_win_matrix_heatmap.py` – annotated heatmap visualization
+  - `create_card_winrates.py` – per-card, per-copy winrates for each archetype (writes to `card_winrates/`)
   - `verify_matchup.py` – CLI to verify head-to-head symmetry and counts
 - `tools/` – maintainer-only diagnostic scripts (not required for end users)
 - `utils/` – API helpers and data utilities
@@ -129,5 +133,6 @@ In CI, pass MELEE_COOKIE via repository secrets; do not hardcode or commit it.
 
 - Mirror matches are intentionally excluded from matchup summaries.
 - Decklist and player names are stripped at fetch time to avoid whitespace bugs.
+- Card winrates are written to `data/<EVENT_NAME>/card_winrates/` as one CSV per archetype, covering 0..N copies per card and location (main/side).
 
 License: MIT

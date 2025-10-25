@@ -26,7 +26,7 @@ import subprocess
 from pathlib import Path
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def run_script(python_exe: str, module_name: str, env: dict) -> int:
@@ -93,6 +93,7 @@ def main(argv: list[str] | None = None) -> int:
         "scripts.fetch_standings_api",
         "scripts.fetch_pairings_api",
         "scripts.fetch_decklists_api",
+        "scripts.create_card_winrates",
         "scripts.filter_pairings_by_archetype",
         "scripts.create_matchups_files",
         "scripts.create_aggregate_stats",
@@ -105,7 +106,7 @@ def main(argv: list[str] | None = None) -> int:
         rc = run_script(python_exe, mod, env)
         end_ts = time.time()
         duration = end_ts - start_ts
-        now = datetime.utcnow().isoformat() + "Z"
+        now = datetime.now(timezone.utc).isoformat()
         log_line = f"{now} | module={mod} | rc={rc} | duration_s={duration:.3f}"
         _append_log(logs_dir / "main.log", log_line)
         print(log_line)

@@ -17,7 +17,7 @@ from utils.api_utils import (
 )
 import requests
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 load_dotenv()
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     try:
         logs_dir = Path(os.environ.get("EVENT_DATA_DIR", Path(__file__).resolve().parents[1] / "data" / event)) / "logs"
         logs_dir.mkdir(parents=True, exist_ok=True)
-        now = datetime.utcnow().isoformat() + "Z"
+        now = datetime.now(timezone.utc).isoformat()
         duration = time.time() - start_ts
         log_line = f"{now} | script=fetch_standings_api | event={sanitized_event} | event_id={EVENT_ID} | duration_s={duration:.3f} | rows={rows_written} | out={out_csv}"
         with (logs_dir / "fetch_standings_api.log").open("a", encoding="utf-8") as fh:

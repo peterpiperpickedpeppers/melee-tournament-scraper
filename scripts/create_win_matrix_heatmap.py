@@ -11,7 +11,7 @@ import matplotlib.font_manager as fm
 import seaborn as sns
 from pathlib import Path
 
-def create_win_matrix_heatmap(top_n=10):
+def create_win_matrix_heatmap(top_n=10, show=False):
     # Get the event directory from environment
     event_data_dir = os.getenv('EVENT_DATA_DIR')
     if not event_data_dir:
@@ -103,17 +103,13 @@ def create_win_matrix_heatmap(top_n=10):
     annotation_df = pd.DataFrame(annotation_matrix, index=top_archetypes, columns=columns)
     
     # Create the heatmap
-    plt.figure(figsize=(18, 12))
+    fig = plt.figure(figsize=(18, 12))
     
     # Set font - use Arial or Segoe UI (common on Windows)
     try:
         plt.rcParams['font.family'] = 'Arial'
-    except:
+    except Exception:
         plt.rcParams['font.family'] = 'sans-serif'
-    
-    # Create a custom colormap mask for the Overall WR column
-    # We want to apply a different visual treatment to it
-    mask = np.zeros_like(winrate_df, dtype=bool)
     
     # Use a diverging colormap centered at 50%
     sns.heatmap(winrate_df, 
@@ -137,7 +133,7 @@ def create_win_matrix_heatmap(top_n=10):
     ax.xaxis.set_label_position('top')
     
     plt.title(f'Win Matrix - Top {top_n} Archetypes',
-              fontsize=16, fontweight='bold', pad=20, y=1.08)  # Adjust title position
+              fontsize=16, fontweight='bold', pad=20, y=1.08)
     
     # Rotate labels for better readability and make them bold
     plt.xticks(rotation=45, ha='left', fontweight='bold')
@@ -151,12 +147,16 @@ def create_win_matrix_heatmap(top_n=10):
     plt.savefig(output_file, dpi=300, bbox_inches='tight')
     print(f"Saved heatmap to: {output_file}")
     
-    # Also show it
-    plt.show()
+    if show:
+        plt.show()
+    else:
+        plt.close(fig)
     
     return winrate_df, annotation_df
 
 if __name__ == '__main__':
-    winrate_df, annotation_df = create_win_matrix_heatmap(top_n=10)
+    # Allow opt-in display via env SHOW_PLOT=1
+    _show = os.getenv('SHOW_PLOT', '0') in ('1', 'true', 'True')
+    winrate_df, annotation_df = create_win_matrix_heatmap(top_n=10, show=_show)
     print("\nWinrate matrix:")
     print(winrate_df.to_string())

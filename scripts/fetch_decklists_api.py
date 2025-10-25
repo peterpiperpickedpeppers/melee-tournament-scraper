@@ -19,7 +19,7 @@ from typing import Set
 # Name suffixes to preserve (used in future normalization helpers)
 NAME_SUFFIXES = {"jr", "jr.", "sr", "sr.", "ii", "iii", "iv", "v"}
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 class DecklistScraper:
@@ -229,7 +229,13 @@ class DecklistScraper:
         cards = self.parse_cards_from_soup(soup)
         rows: List[Dict[str, Any]] = []
         for c in cards:
-            rows.append({"player": player, "card_name": c["card_name"], "qty": c["qty"], "zone": c["zone"], "deck_guid": guid})
+            rows.append({
+                "player": player,
+                "card_name": c["card_name"],
+                "qty": c["qty"],
+                "zone": c["zone"],
+                "deck_guid": guid,
+            })
         return rows
 
     def normalize_player_name(self, raw: str) -> str:
@@ -309,7 +315,19 @@ class DecklistScraper:
             name = f"{name} {suffix}"
         return " ".join([w.capitalize() for w in name.split()])
 
-    def process_guids(self, guids: List[str], save_csv: Optional[Path] = None) -> List[Dict[str, Any]]:
+    def process_guids(
+        self,
+        guids: List[str],
+        save_csv: Optional[Path] = None,
+        standings_lookup: Optional[Dict[str, Dict[str, Any]]] = None
+    ) -> List[Dict[str, Any]]:
+        """Process deck GUIDs and optionally enrich with standings data.
+        
+        Args:
+            guids: List of deck GUIDs to fetch
+            save_csv: Optional path to save combined CSV
+            standings_lookup: Optional dict mapping player_name -> {wins, losses, draws, deck_archetype}
+        """
         rows: List[Dict[str, Any]] = []
         for guid in guids:
             url = self.build_view_url(guid)
@@ -317,13 +335,26 @@ class DecklistScraper:
             if payload.get("status_code") != 200:
                 print(f"Warning: {guid} returned {payload.get('status_code')}")
                 continue
-            rows.extend(self.extract_cards_and_player(payload, guid))
+            card_rows = self.extract_cards_and_player(payload, guid)
+            
+            # Enrich with standings data if available
+            if standings_lookup and card_rows:
+                player_name = card_rows[0].get("player", "")
+                player_data = standings_lookup.get(player_name, {})
+                for row in card_rows:
+                    row["wins"] = player_data.get("wins", "")
+                    row["losses"] = player_data.get("losses", "")
+                    row["draws"] = player_data.get("draws", "")
+                    row["deck_archetype"] = player_data.get("deck_archetype", "")
+            
+            rows.extend(card_rows)
 
         if save_csv:
             save_csv.parent.mkdir(parents=True, exist_ok=True)
             with save_csv.open("w", encoding="utf-8", newline="") as fh:
                 if rows:
-                    writer = csv.DictWriter(fh, fieldnames=["player", "card_name", "qty", "zone", "deck_guid"], quoting=csv.QUOTE_MINIMAL)
+                    fieldnames = ["player", "wins", "losses", "draws", "deck_archetype", "card_name", "qty", "zone", "deck_guid"]
+                    writer = csv.DictWriter(fh, fieldnames=fieldnames, quoting=csv.QUOTE_MINIMAL, extrasaction='ignore')
                     writer.writeheader()
                     for r in rows:
                         writer.writerow(r)
@@ -408,14 +439,67 @@ if __name__ == "__main__":
         print("No standings file with 'decklist_guid' found in data/; using sample GUIDs")
         guids = sample_guid
 
+    # Build standings lookup: player_name -> {wins, losses, draws, deck_archetype}
+    standings_lookup: Dict[str, Dict[str, Any]] = {}
+    if standings_path and standings_path.exists():
+        try:
+            import pandas as pd
+            import ast
+            standings_df = pd.read_csv(standings_path, encoding="utf-8-sig")
+            
+            # Create a scraper instance to access normalize_player_name
+            temp_scraper = DecklistScraper()
+            
+            for _, row in standings_df.iterrows():
+                player_name_raw = str(row.get("PlayerName", "")).strip()
+                if not player_name_raw:
+                    continue
+                
+                # Normalize the player name to match what we'll get from decklists
+                player_name = temp_scraper.normalize_player_name(player_name_raw)
+                if not player_name:
+                    continue
+                
+                # Parse MatchRecord (format: "W-L-D")
+                match_record = str(row.get("MatchRecord", ""))
+                wins, losses, draws = "", "", ""
+                if match_record and "-" in match_record:
+                    parts = match_record.split("-")
+                    if len(parts) >= 3:
+                        wins, losses, draws = parts[0], parts[1], parts[2]
+                
+                # Extract deck archetype from Decklists column (JSON/dict format)
+                deck_archetype = ""
+                decklists_data = str(row.get("Decklists", ""))
+                if decklists_data and decklists_data != "nan":
+                    try:
+                        # Parse the list of decklists (usually just one)
+                        decklist_list = ast.literal_eval(decklists_data)
+                        if isinstance(decklist_list, list) and len(decklist_list) > 0:
+                            # Get DecklistName from the first entry
+                            deck_archetype = decklist_list[0].get("DecklistName", "").strip()
+                    except (ValueError, SyntaxError, AttributeError):
+                        pass
+                
+                standings_lookup[player_name] = {
+                    "wins": wins,
+                    "losses": losses,
+                    "draws": draws,
+                    "deck_archetype": deck_archetype,
+                }
+            
+            print(f"Loaded standings data for {len(standings_lookup)} players")
+        except Exception as e:
+            print(f"Warning: Failed to load standings data: {e}")
+            standings_lookup = {}
+
     scraper = DecklistScraper()
     # include event name in decklist filename
     raw_event_name = os.environ.get("EVENT_NAME", "event")
-    import re
     sanitized_event = re.sub(r'[<>:"/\\|?*]', '_', raw_event_name)
     out_path = data_dir / f"{sanitized_event} decklists.csv"
     start_ts = time.time()
-    rows = scraper.process_guids(guids, save_csv=out_path)
+    rows = scraper.process_guids(guids, save_csv=out_path, standings_lookup=standings_lookup)
     duration = time.time() - start_ts
     print("Parsed rows:", len(rows))
 
@@ -423,7 +507,7 @@ if __name__ == "__main__":
     try:
         logs_dir = data_dir / "logs"
         logs_dir.mkdir(parents=True, exist_ok=True)
-        now = datetime.utcnow().isoformat() + "Z"
+        now = datetime.now(timezone.utc).isoformat()
         log_line = f"{now} | script=fetch_decklists_api | event={sanitized_event} | rows={len(rows)} | out={out_path} | duration_s={duration:.3f}"
         with (logs_dir / "fetch_decklists_api.log").open("a", encoding="utf-8") as fh:
             fh.write(log_line + "\n")
