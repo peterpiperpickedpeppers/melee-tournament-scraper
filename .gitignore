@@ -186,3 +186,10 @@ old_scripts/
 # ignore data folders
 data/
 logs/
+
+scripts/analyze_bog_reclaimer_combo.py
+scripts/analyze_bojuka_bog.py
+scripts/analyze_reclaimer.py
+scripts/query_matchup.py
+scripts/analyze_urzas_cave.py
+scripts/analyze_cave_bog_combo.py
