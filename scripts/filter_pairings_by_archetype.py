@@ -9,7 +9,7 @@ import os
 import re
 import pandas as pd
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def _sanitize_filename(s: str) -> str:
@@ -144,7 +144,8 @@ def create_archetypes_results():
         print(f"Wrote {len(combined_df)} rows to {out_path}")
         written += 1
 
-    now = datetime.utcnow().isoformat() + "Z"
+    # Use timezone-aware UTC timestamp to avoid deprecation warnings
+    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     print(f"{now} - Completed archetype filtering. Wrote {written} files to {results_dir}")
 
 
