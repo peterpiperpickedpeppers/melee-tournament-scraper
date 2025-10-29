@@ -195,3 +195,4 @@ scripts/analyze_urzas_cave.py
 scripts/analyze_cave_bog_combo.py
 scripts/analyze_blink_ashiok_quantity_vs_amulet.py
 scripts/analyze_blink_ashiok_vs_amulet.py
+scripts/analyze_dryad_arbor_usage.py
