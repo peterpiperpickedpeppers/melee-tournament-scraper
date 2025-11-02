@@ -11,11 +11,13 @@ Behavior:
   1) scripts/fetch_standings_api.py
   2) scripts/fetch_pairings_api.py
   3) scripts/fetch_decklists_api.py
-  4) scripts/filter_pairings_by_archetype.py
-  5) scripts/create_matchups_files.py
-  6) scripts/create_aggregate_stats.py
-  7) scripts/create_win_matrix.py
-  8) scripts/create_win_matrix_heatmap.py
+  4) scripts/create_metagame_breakdown.py
+  5) scripts/create_card_winrates.py
+  6) scripts/filter_pairings_by_archetype.py
+  7) scripts/create_matchups_files.py
+  8) scripts/create_aggregate_stats.py
+  9) scripts/create_win_matrix.py
+  10) scripts/create_win_matrix_heatmap.py
 - Exports environment variables so the scripts write into the event folder.
 """
 
@@ -93,6 +95,7 @@ def main(argv: list[str] | None = None) -> int:
         "scripts.fetch_standings_api",
         "scripts.fetch_pairings_api",
         "scripts.fetch_decklists_api",
+        "scripts.create_metagame_breakdown",
         "scripts.create_card_winrates",
         "scripts.filter_pairings_by_archetype",
         "scripts.create_matchups_files",
