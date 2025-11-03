@@ -73,6 +73,7 @@ def process_archetype_results(archetype, results_dir):
 def create_matchups_files():
     # Get the event directory from environment
     event_data_dir = os.getenv('EVENT_DATA_DIR')
+    event_data_dir = event_data_dir.strip() if isinstance(event_data_dir, str) else event_data_dir
     if not event_data_dir:
         raise ValueError("EVENT_DATA_DIR environment variable not set")
     

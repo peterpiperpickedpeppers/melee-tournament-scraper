@@ -11,9 +11,10 @@ import matplotlib.font_manager as fm
 import seaborn as sns
 from pathlib import Path
 
-def create_win_matrix_heatmap(top_n=10, show=False):
+def create_win_matrix_heatmap(top_n=15, show=False):
     # Get the event directory from environment
     event_data_dir = os.getenv('EVENT_DATA_DIR')
+    event_data_dir = event_data_dir.strip() if isinstance(event_data_dir, str) else event_data_dir
     if not event_data_dir:
         raise ValueError("EVENT_DATA_DIR environment variable not set")
     
@@ -143,6 +144,7 @@ def create_win_matrix_heatmap(top_n=10, show=False):
     
     # Save the figure
     event_name = os.getenv('EVENT_NAME', 'event')
+    event_name = event_name.strip() if isinstance(event_name, str) else event_name
     output_file = Path(event_data_dir) / f'{event_name} win matrix heatmap top{top_n}.png'
     plt.savefig(output_file, dpi=300, bbox_inches='tight')
     print(f"Saved heatmap to: {output_file}")
@@ -157,6 +159,6 @@ def create_win_matrix_heatmap(top_n=10, show=False):
 if __name__ == '__main__':
     # Allow opt-in display via env SHOW_PLOT=1
     _show = os.getenv('SHOW_PLOT', '0') in ('1', 'true', 'True')
-    winrate_df, annotation_df = create_win_matrix_heatmap(top_n=10, show=_show)
+    winrate_df, annotation_df = create_win_matrix_heatmap(top_n=15, show=_show)
     print("\nWinrate matrix:")
     print(winrate_df.to_string())

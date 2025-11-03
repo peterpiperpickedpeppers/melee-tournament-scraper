@@ -12,8 +12,14 @@ and an existing decklists CSV named "<EVENT_NAME> decklists.csv" in EVENT_DATA_D
 """
 
 import os
+import sys
 from pathlib import Path
 import pandas as pd
+
+# Ensure repository root is on sys.path for local imports when executed directly
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from scripts.card_winrates_per_archetype import archetype_card_copy_winrates
 
@@ -26,6 +32,8 @@ def _sanitize_filename(name: str) -> str:
 def create_all_card_winrates(min_pilots: int = 0, max_copies_cap: int | None = 4) -> list[Path]:
     event_dir = os.getenv('EVENT_DATA_DIR')
     event_name = os.getenv('EVENT_NAME', 'event')
+    event_dir = event_dir.strip() if event_dir else event_dir
+    event_name = event_name.strip() if event_name else event_name
     if not event_dir:
         raise ValueError('EVENT_DATA_DIR environment variable not set')
 

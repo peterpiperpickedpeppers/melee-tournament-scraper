@@ -10,6 +10,7 @@ from pathlib import Path
 def create_aggregate_stats():
     # Get the event directory from environment
     event_data_dir = os.getenv('EVENT_DATA_DIR')
+    event_data_dir = event_data_dir.strip() if isinstance(event_data_dir, str) else event_data_dir
     if not event_data_dir:
         raise ValueError("EVENT_DATA_DIR environment variable not set")
     
@@ -53,6 +54,7 @@ def create_aggregate_stats():
     
     # Write to CSV in the event root directory
     event_name = os.getenv('EVENT_NAME', 'event')
+    event_name = event_name.strip() if isinstance(event_name, str) else event_name
     output_file = Path(event_data_dir) / f'{event_name} aggregate stats.csv'
     aggregate_df.to_csv(output_file, index=False)
     

@@ -31,14 +31,20 @@ def create_archetypes_results():
     repo_root = Path(__file__).resolve().parents[1]
     # event directory override (set by main.py) or default to data/<EVENT_NAME> or data/event
     event_name_env = os.environ.get("EVENT_NAME") or "event"
+    event_name_env = event_name_env.strip() if isinstance(event_name_env, str) else event_name_env
     default_event_dir = repo_root / "data" / event_name_env
-    event_dir = Path(os.environ.get("EVENT_DATA_DIR", default_event_dir))
+    event_data_dir_env = os.environ.get("EVENT_DATA_DIR")
+    if isinstance(event_data_dir_env, str):
+        event_data_dir_env = event_data_dir_env.strip()
+    event_dir = Path(event_data_dir_env or default_event_dir)
 
     if not event_dir.exists():
         raise SystemExit(f"Event data directory not found: {event_dir}")
 
     # find pairings CSV: prefer files with 'pairings' in name, else any csv
-    pairings_candidates = sorted(event_dir.glob("*pairings*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)
+    # Prefer true pairings files (exclude derived "unique archetypes" lists)
+    pairings_candidates = [p for p in event_dir.glob("*pairings*.csv") if "unique archetypes" not in p.name.lower()]
+    pairings_candidates = sorted(pairings_candidates, key=lambda p: p.stat().st_mtime, reverse=True)
     pairings_path = None
     if pairings_candidates:
         pairings_path = pairings_candidates[0]

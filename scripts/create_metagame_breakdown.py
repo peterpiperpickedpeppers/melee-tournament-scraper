@@ -22,6 +22,9 @@ import pandas as pd
 def main() -> int:
     event_data_dir = os.getenv("EVENT_DATA_DIR")
     event_name = os.getenv("EVENT_NAME")
+    # Trim whitespace from env to avoid path issues
+    event_data_dir = event_data_dir.strip() if event_data_dir else event_data_dir
+    event_name = event_name.strip() if event_name else event_name
 
     if not event_data_dir or not event_name:
         print("ERROR: EVENT_DATA_DIR and EVENT_NAME environment variables must be set.", file=sys.stderr)

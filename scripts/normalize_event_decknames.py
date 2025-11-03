@@ -40,7 +40,7 @@ DECKNAME_MAP = {
     "Gruul Eldrazi Ramp": "Eldrazi Ramp",
     "Gruul Eldrazi": "Eldrazi Aggro",
     "Jeskai Aggro": "Jeskai Blink",
-    # Additional mappings provided later
+    # Additional mappings - RC South America
     "Boros Aggro": "Boros Energy",
     "Boros Storm": "Ruby Storm",
     "Esper": "Esper Blink",
@@ -48,6 +48,27 @@ DECKNAME_MAP = {
     "Mono-Green Tron": "Eldrazi Tron",
     "W-U-R-G": "Domain Zoo",
     "W-U-R-G Midrange": "Domain Zoo",
+    # Additional mappings - MXP Modern 20k November 2025
+    "Boros Combo": "Boros Energy",
+    "Gruul Aggro": "Eldrazi Aggro",
+    "Gruul": "Gruul Broodscale",
+    "Gruul Eldrazi Aggro": "Eldrazi Aggro",
+    "Mono-Green Creativity": "Amulet Titan",
+    "Mono-Green Amulet Titan": "Amulet Titan",
+    "Simic Amulet Titan": "Amulet Titan",
+    "W-U-B-G": "Esper Goryo's",
+    "W-U-B-G Combo": "Esper Goryo's",
+    # Additional mappings - Global cleanup
+    "Colorless Aggro": "Eldrazi Aggro",
+    "Colorless Eldrazi": "Eldrazi Tron",
+    "Colorless Eldrazi Tron": "Eldrazi Tron",
+    "Esper Goryo's Vengeance": "Esper Goryo's",
+    "Gruul Combo": "Gruul Broodscale",
+    "Mono-Green Combo": "Mono-Green Broodscale",
+    "Mono-Green roodscale": "Mono-Green Broodscale",
+    "Mono-Green Eldrazi": "Eldrazi Tron",
+    "W-U-B-R-G Domain Zoo": "Domain Zoo",
+    "W-U-R-G Domain": "Domain Zoo",
 }
 
 
@@ -61,6 +82,9 @@ def replace_and_count(series: pd.Series, mapping: dict[str, str]) -> tuple[pd.Se
 def normalize_event() -> int:
     event_data_dir = os.getenv("EVENT_DATA_DIR")
     event_name = os.getenv("EVENT_NAME")
+    # Defensive: trim whitespace to avoid accidental trailing spaces in env vars
+    event_data_dir = event_data_dir.strip() if event_data_dir else event_data_dir
+    event_name = event_name.strip() if event_name else event_name
     if not event_data_dir or not event_name:
         print("ERROR: EVENT_DATA_DIR and EVENT_NAME must be set.", file=sys.stderr)
         return 1

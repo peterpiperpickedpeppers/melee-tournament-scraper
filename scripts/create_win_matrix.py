@@ -7,9 +7,10 @@ import os
 import pandas as pd
 from pathlib import Path
 
-def create_win_matrix(top_n=10):
+def create_win_matrix(top_n=15):
     # Get the event directory from environment
     event_data_dir = os.getenv('EVENT_DATA_DIR')
+    event_data_dir = event_data_dir.strip() if isinstance(event_data_dir, str) else event_data_dir
     if not event_data_dir:
         raise ValueError("EVENT_DATA_DIR environment variable not set")
     
@@ -69,6 +70,7 @@ def create_win_matrix(top_n=10):
     
     # Write to CSV
     event_name = os.getenv('EVENT_NAME', 'event')
+    event_name = event_name.strip() if isinstance(event_name, str) else event_name
     output_file = Path(event_data_dir) / f'{event_name} win matrix top{top_n}.csv'
     matrix_df.to_csv(output_file)
     
@@ -79,4 +81,4 @@ def create_win_matrix(top_n=10):
     return matrix_df
 
 if __name__ == '__main__':
-    create_win_matrix(top_n=10)
+    create_win_matrix(top_n=15)
