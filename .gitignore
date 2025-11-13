@@ -196,4 +196,5 @@ scripts/analyze_cave_bog_combo.py
 scripts/analyze_blink_ashiok_quantity_vs_amulet.py
 scripts/analyze_blink_ashiok_vs_amulet.py
 scripts/analyze_dryad_arbor_usage.py
-scripts\normalize_event_decknames.py
+scripts/normalize_event_decknames.py
+scripts/analyze_boros_bloodmoon_vs_amulet.py
