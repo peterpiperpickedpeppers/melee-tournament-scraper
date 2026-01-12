@@ -203,3 +203,4 @@ scripts/setup_gsheets_auth.py
 melee_standings_added_to_sheets.py
 combine_spotlights.py
 gen_heatmap.py
+analysis
