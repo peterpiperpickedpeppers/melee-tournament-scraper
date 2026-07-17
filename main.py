@@ -56,11 +56,18 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Run the full pipeline: fetch data, normalize, create matchups, aggregate stats, and generate visualizations.")
     p.add_argument("--event-id", required=True, help="Event ID to use when fetching (numeric).")
     p.add_argument("--event-name", required=True, help="Event name (used to create data/<event-name>/ folder).")
+    p.add_argument(
+        "--event-type",
+        default="constructed",
+        choices=["constructed", "pro-tour", "worlds"],
+        help="Event type used for limited/constructed round classification.",
+    )
     p.add_argument("--python", default=sys.executable, help="Python executable to run the scripts (default: current interpreter).")
     args = p.parse_args(argv)
 
     event_id = str(args.event_id)
     event_name = args.event_name
+    event_type = args.event_type
     python_exe = args.python
 
     repo_root = Path(__file__).resolve().parent
@@ -78,6 +85,7 @@ def main(argv: list[str] | None = None) -> int:
     env["EVENT_ID"] = event_id
     env["EVENT_NAME"] = event_name
     env["EVENT_DATA_DIR"] = str(event_dir)
+    env["EVENT_TYPE"] = event_type
 
     # ensure event dir and logs dir exist
     event_dir.mkdir(parents=True, exist_ok=True)

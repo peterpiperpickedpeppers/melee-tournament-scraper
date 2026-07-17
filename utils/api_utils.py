@@ -12,6 +12,7 @@ import time
 from dotenv import load_dotenv
 from typing import Any
 import json, ast
+import re
 
 load_dotenv()
 
@@ -273,6 +274,115 @@ def get_round_ids(session: requests.Session, event_id: int, mode: str = "standin
     # Return newest → oldest
     ids.reverse()
     return ids
+
+
+def get_round_metadata(session: requests.Session, event_id: int, mode: str = "standings") -> list[dict[str, Any]]:
+    """
+    Return per-round metadata from the tournament page.
+
+    Each item includes:
+      - id: int round id
+      - name: str round display name (e.g. "Round 1", "Quarterfinals")
+      - round_number: int | None parsed from name when present
+      - is_started / is_completed: bool | None (depending on selector attrs)
+
+    Order is as displayed on the page (typically chronological for numbered rounds).
+    """
+    if mode not in {"standings", "pairings"}:
+        raise ValueError("mode must be 'standings' or 'pairings'")
+
+    r = session.get(f"https://melee.gg/Tournament/View/{event_id}", timeout=30)
+    r.raise_for_status()
+    soup = BeautifulSoup(r.text, "html.parser")
+
+    if mode == "standings":
+        btns = soup.select("#standings-round-selector-container .round-selector")
+    else:
+        btns = soup.select("#pairings-round-selector-container .round-selector")
+
+    out: list[dict[str, Any]] = []
+    for b in btns:
+        rid_raw = (b.get("data-id") or "").strip()  # type: ignore
+        if not rid_raw.isdigit():
+            continue
+        rid = int(rid_raw)
+        name = (b.get("data-name") or "").strip()  # type: ignore
+        if not name:
+            name = " ".join(b.get_text(" ", strip=True).split())
+        m = re.search(r"round\s+(\d+)", name, flags=re.I)
+        round_number = int(m.group(1)) if m else None
+
+        started_raw = b.get("data-is-started")
+        completed_raw = b.get("data-is-completed")
+        is_started = None if started_raw is None else str(started_raw).strip().lower() == "true"
+        is_completed = None if completed_raw is None else str(completed_raw).strip().lower() == "true"
+
+        out.append(
+            {
+                "id": rid,
+                "name": name,
+                "round_number": round_number,
+                "is_started": is_started,
+                "is_completed": is_completed,
+            }
+        )
+    return out
+
+
+def get_limited_round_numbers_for_event_type(event_type: str) -> set[int]:
+    """
+    Return limited round numbers based on configured event type.
+
+    event_type values:
+      - constructed: all rounds considered constructed
+      - pro-tour: limited rounds 1,2,3,9,10,11
+      - worlds: limited rounds 1,2,3,8,9,10
+    """
+    t = (event_type or "constructed").strip().lower()
+    if t == "pro-tour":
+        return {1, 2, 3, 9, 10, 11}
+    if t == "worlds":
+        return {1, 2, 3, 8, 9, 10}
+    return set()
+
+
+def classify_event_round_ids(session: requests.Session, event_id: int, event_type: str, mode: str = "pairings") -> dict[str, Any]:
+    """
+    Classify rounds into constructed vs limited using event type + round metadata.
+
+    Returns dict with:
+      - all_ids
+      - available_ids (started/completed depending on mode)
+      - limited_ids
+      - constructed_ids
+      - metadata
+    """
+    metadata = get_round_metadata(session, event_id, mode=mode)
+    limited_round_numbers = get_limited_round_numbers_for_event_type(event_type)
+
+    if mode == "pairings":
+        available = [m for m in metadata if m.get("is_started") is not False]
+    else:
+        available = [m for m in metadata if m.get("is_completed") is not False]
+
+    all_ids = [int(m["id"]) for m in metadata]
+    available_ids = [int(m["id"]) for m in available]
+
+    limited_ids = [
+        int(m["id"])
+        for m in available
+        if m.get("round_number") is not None and int(m["round_number"]) in limited_round_numbers
+    ]
+    limited_id_set = set(limited_ids)
+    constructed_ids = [rid for rid in available_ids if rid not in limited_id_set]
+
+    return {
+        "all_ids": all_ids,
+        "available_ids": available_ids,
+        "limited_ids": limited_ids,
+        "constructed_ids": constructed_ids,
+        "metadata": metadata,
+    }
 
 # pairings api utils
 def parse_result_string(result: str):

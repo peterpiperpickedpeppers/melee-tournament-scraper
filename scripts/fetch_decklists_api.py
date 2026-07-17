@@ -6,20 +6,102 @@ Fetches a deck view page, extracts cards and the player name, and optionally
 saves the results in a combined CSV file.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Set
 from pathlib import Path
 import os
+import ast
 import requests
 import re
 import csv
 from bs4 import BeautifulSoup
 import csv as _csv
-from typing import Set
 
 # Name suffixes to preserve (used in future normalization helpers)
 NAME_SUFFIXES = {"jr", "jr.", "sr", "sr.", "ii", "iii", "iv", "v"}
 import time
 from datetime import datetime, timezone
+
+
+def _parse_match_record(match_record):
+    if match_record is None:
+        return {"wins": 0, "losses": 0, "draws": 0}
+    text_value = str(match_record).strip()
+    if not text_value or "-" not in text_value:
+        return {"wins": 0, "losses": 0, "draws": 0}
+    parts = [part.strip() for part in text_value.split("-") if part.strip()]
+    if len(parts) < 3:
+        return {"wins": 0, "losses": 0, "draws": 0}
+    try:
+        return {
+            "wins": int(parts[0]),
+            "losses": int(parts[1]),
+            "draws": int(parts[2]),
+        }
+    except ValueError:
+        return {"wins": 0, "losses": 0, "draws": 0}
+
+
+def _coerce_record_value(value):
+    if value is None:
+        return ""
+    if isinstance(value, float) and value != value:
+        return ""
+    if isinstance(value, (int, float)):
+        return str(int(value))
+    text_value = str(value).strip()
+    return text_value
+
+
+def build_standings_lookup_from_path(path: Path) -> Dict[str, Dict[str, Any]]:
+    if not path or not path.exists():
+        return {}
+
+    try:
+        import pandas as pd
+        standings_df = pd.read_csv(path, encoding="utf-8-sig")
+    except Exception as exc:
+        print(f"Warning: Failed to load standings data from {path}: {exc}")
+        return {}
+
+    scraper = DecklistScraper()
+    standings_lookup: Dict[str, Dict[str, Any]] = {}
+    for _, row in standings_df.iterrows():
+        player_name_raw = str(row.get("PlayerName", "")).strip()
+        if not player_name_raw:
+            continue
+
+        player_name = scraper.normalize_player_name(player_name_raw)
+        if not player_name:
+            continue
+
+        if {"constructed_wins", "constructed_losses", "constructed_draws"}.issubset(standings_df.columns):
+            wins = _coerce_record_value(row.get("constructed_wins", row.get("wins", "")))
+            losses = _coerce_record_value(row.get("constructed_losses", row.get("losses", "")))
+            draws = _coerce_record_value(row.get("constructed_draws", row.get("draws", "")))
+        else:
+            parsed = _parse_match_record(row.get("MatchRecord", ""))
+            wins = _coerce_record_value(parsed.get("wins", ""))
+            losses = _coerce_record_value(parsed.get("losses", ""))
+            draws = _coerce_record_value(parsed.get("draws", ""))
+
+        deck_archetype = str(row.get("deck_archetype", "") or "").strip()
+        decklists_data = str(row.get("Decklists", ""))
+        if not deck_archetype and decklists_data and decklists_data != "nan":
+            try:
+                decklist_list = ast.literal_eval(decklists_data)
+                if isinstance(decklist_list, list) and len(decklist_list) > 0:
+                    deck_archetype = decklist_list[0].get("DecklistName", "").strip()
+            except (ValueError, SyntaxError, AttributeError):
+                pass
+
+        standings_lookup[player_name] = {
+            "wins": wins,
+            "losses": losses,
+            "draws": draws,
+            "deck_archetype": deck_archetype,
+        }
+
+    return standings_lookup
 
 
 class DecklistScraper:
@@ -352,10 +434,10 @@ class DecklistScraper:
         if save_csv:
             save_csv.parent.mkdir(parents=True, exist_ok=True)
             with save_csv.open("w", encoding="utf-8", newline="") as fh:
+                fieldnames = ["player", "wins", "losses", "draws", "deck_archetype", "card_name", "qty", "zone", "deck_guid"]
+                writer = csv.DictWriter(fh, fieldnames=fieldnames, quoting=csv.QUOTE_MINIMAL, extrasaction='ignore')
+                writer.writeheader()
                 if rows:
-                    fieldnames = ["player", "wins", "losses", "draws", "deck_archetype", "card_name", "qty", "zone", "deck_guid"]
-                    writer = csv.DictWriter(fh, fieldnames=fieldnames, quoting=csv.QUOTE_MINIMAL, extrasaction='ignore')
-                    writer.writeheader()
                     for r in rows:
                         writer.writerow(r)
             print("Saved combined CSV to", save_csv)
@@ -401,11 +483,9 @@ if __name__ == "__main__":
             return []
         return guids
 
-    # prefer the latest standings file in data/ (allow EVENT_DATA_DIR override)
+    # prefer the latest standings summary file in data/ (allow EVENT_DATA_DIR override)
     data_dir = Path(os.environ.get("EVENT_DATA_DIR") or (Path(__file__).resolve().parents[1] / "data"))
 
-    # 1) Prefer files that look like standings (contains 'standings') and are most recent
-    standings_candidates = sorted(data_dir.glob("*standings*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)
     standings_path = None
     guids: List[str] = []
 
@@ -416,15 +496,24 @@ if __name__ == "__main__":
         except Exception:
             return []
 
-    for cand in standings_candidates:
-        vals = _try_load_from(cand)
-        if vals:
-            standings_path = cand
-            guids = vals
-            break
+    summary_candidates = sorted(data_dir.glob("*standings summary*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if summary_candidates:
+        standings_path = summary_candidates[0]
+        guids = _try_load_from(standings_path)
 
-    # 2) If none of the 'standings' files contained guids, scan any CSVs in the folder
-    if not guids:
+    if standings_path is not None and not guids:
+        standings_path = None
+
+    if standings_path is None:
+        standings_candidates = sorted(data_dir.glob("*standings*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)
+        for cand in standings_candidates:
+            vals = _try_load_from(cand)
+            if vals:
+                standings_path = cand
+                guids = vals
+                break
+
+    if standings_path is None:
         other_csvs = sorted(data_dir.glob("*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)
         for cand in other_csvs:
             vals = _try_load_from(cand)
@@ -439,59 +528,17 @@ if __name__ == "__main__":
         print("No standings file with 'decklist_guid' found in data/; using sample GUIDs")
         guids = sample_guid
 
-    # Build standings lookup: player_name -> {wins, losses, draws, deck_archetype}
+    if standings_path and not guids:
+        print(f"Warning: no decklist GUIDs found in {standings_path}; using sample GUIDs")
+        guids = sample_guid
+
     standings_lookup: Dict[str, Dict[str, Any]] = {}
     if standings_path and standings_path.exists():
-        try:
-            import pandas as pd
-            import ast
-            standings_df = pd.read_csv(standings_path, encoding="utf-8-sig")
-            
-            # Create a scraper instance to access normalize_player_name
-            temp_scraper = DecklistScraper()
-            
-            for _, row in standings_df.iterrows():
-                player_name_raw = str(row.get("PlayerName", "")).strip()
-                if not player_name_raw:
-                    continue
-                
-                # Normalize the player name to match what we'll get from decklists
-                player_name = temp_scraper.normalize_player_name(player_name_raw)
-                if not player_name:
-                    continue
-                
-                # Parse MatchRecord (format: "W-L-D")
-                match_record = str(row.get("MatchRecord", ""))
-                wins, losses, draws = "", "", ""
-                if match_record and "-" in match_record:
-                    parts = match_record.split("-")
-                    if len(parts) >= 3:
-                        wins, losses, draws = parts[0], parts[1], parts[2]
-                
-                # Extract deck archetype from Decklists column (JSON/dict format)
-                deck_archetype = ""
-                decklists_data = str(row.get("Decklists", ""))
-                if decklists_data and decklists_data != "nan":
-                    try:
-                        # Parse the list of decklists (usually just one)
-                        decklist_list = ast.literal_eval(decklists_data)
-                        if isinstance(decklist_list, list) and len(decklist_list) > 0:
-                            # Get DecklistName from the first entry
-                            deck_archetype = decklist_list[0].get("DecklistName", "").strip()
-                    except (ValueError, SyntaxError, AttributeError):
-                        pass
-                
-                standings_lookup[player_name] = {
-                    "wins": wins,
-                    "losses": losses,
-                    "draws": draws,
-                    "deck_archetype": deck_archetype,
-                }
-            
+        standings_lookup = build_standings_lookup_from_path(standings_path)
+        if standings_lookup:
             print(f"Loaded standings data for {len(standings_lookup)} players")
-        except Exception as e:
-            print(f"Warning: Failed to load standings data: {e}")
-            standings_lookup = {}
+        else:
+            print(f"Warning: no standings data could be loaded from {standings_path}")
 
     scraper = DecklistScraper()
     # include event name in decklist filename

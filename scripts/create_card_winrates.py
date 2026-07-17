@@ -13,7 +13,10 @@ and an existing decklists CSV named "<EVENT_NAME> decklists.csv" in EVENT_DATA_D
 
 import os
 import sys
+import re
+import requests
 from pathlib import Path
+from typing import Dict, List, Optional, Set
 import pandas as pd
 
 # Ensure repository root is on sys.path for local imports when executed directly
@@ -21,15 +24,127 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
+from scripts.fetch_decklists_api import DecklistScraper
+from utils.api_utils import parse_result_string
+from utils.api_utils import classify_event_round_ids
 from scripts.card_winrates_per_archetype import archetype_card_copy_winrates
 
 
+def _is_valid_match_row(row: pd.Series) -> bool:
+    """Return True for rows that should count toward card winrates."""
+    outcome = str(row.get("Outcome", "") or "")
+    result_string = str(row.get("ResultString", "") or "")
+
+    if not outcome and not result_string:
+        return False
+
+    if outcome.strip().lower() == "bye":
+        return False
+
+    if "0-0-3" in result_string:
+        return False
+
+    if "draw" in outcome.lower() or "draw" in result_string.lower():
+        return False
+
+    return True
+
+
+def build_pilot_result_lookup_from_pairings(
+    pairings_df: pd.DataFrame,
+    pilots: Optional[List[str]] = None,
+    constructed_pilots: Optional[Set[str]] = None,
+) -> Dict[str, Dict[str, int]]:
+    """Build pilot -> {Wins, Losses} from constructed-only pairings rows."""
+    if pilots is None:
+        pilots = []
+
+    normalizer = DecklistScraper().normalize_player_name
+    lookup: Dict[str, Dict[str, int]] = {
+        normalizer(str(pilot).strip()): {"Wins": 0, "Losses": 0}
+        for pilot in pilots
+        if str(pilot).strip()
+    }
+    if pairings_df.empty:
+        return lookup
+
+    if constructed_pilots is None:
+        constructed_pilots = set(lookup.keys())
+    else:
+        constructed_pilots = {normalizer(str(p).strip()) for p in constructed_pilots if str(p).strip()}
+
+    for _, row in pairings_df.iterrows():
+        if not _is_valid_match_row(row):
+            continue
+
+        player = normalizer(str(row.get("Player") or ""))
+        opponent = normalizer(str(row.get("Opponent") or ""))
+        result_string = str(row.get("ResultString") or "")
+        outcome = str(row.get("Outcome") or "")
+
+        if not player and not opponent:
+            continue
+
+        if player not in constructed_pilots or opponent not in constructed_pilots:
+            continue
+
+        winner_name, is_draw, is_bye = parse_result_string(result_string or outcome)
+        if is_draw or is_bye or not winner_name:
+            continue
+
+        winner_key = normalizer(winner_name)
+        if winner_key == player:
+            if opponent in lookup:
+                lookup[opponent]["Losses"] += 1
+            if player in lookup:
+                lookup[player]["Wins"] += 1
+        elif winner_key == opponent:
+            if player in lookup:
+                lookup[player]["Losses"] += 1
+            if opponent in lookup:
+                lookup[opponent]["Wins"] += 1
+
+    return lookup
+
+
 def _sanitize_filename(name: str) -> str:
-    import re
     return re.sub(r'[<>:"/\\|?*]', '_', str(name))
 
 
-def create_all_card_winrates(min_pilots: int = 0, max_copies_cap: int | None = 4) -> list[Path]:
+def _parse_round_id_env(raw: str) -> Set[int]:
+    vals: Set[int] = set()
+    if not raw:
+        return vals
+    for token in re.split(r"[,\s]+", raw.strip()):
+        if not token:
+            continue
+        try:
+            vals.add(int(token))
+        except ValueError:
+            continue
+    return vals
+
+
+def _get_constructed_round_ids_from_standings_files(event_path: Path) -> Set[int]:
+    round_ids: Set[int] = set()
+    for p in event_path.glob("*standings round_*.csv"):
+        m = re.search(r"round_(\d+)\.csv$", p.name)
+        if m:
+            round_ids.add(int(m.group(1)))
+    return round_ids
+
+
+def _get_constructed_round_ids_from_file(event_path: Path) -> Set[int]:
+    ids_file = event_path / "constructed_round_ids.txt"
+    if not ids_file.exists():
+        return set()
+    try:
+        return _parse_round_id_env(ids_file.read_text(encoding="utf-8"))
+    except Exception:
+        return set()
+
+
+def create_all_card_winrates(min_pilots: int = 0, max_copies_cap: Optional[int] = 4) -> List[Path]:
     event_dir = os.getenv('EVENT_DATA_DIR')
     event_name = os.getenv('EVENT_NAME', 'event')
     event_dir = event_dir.strip() if event_dir else event_dir
@@ -52,10 +167,73 @@ def create_all_card_winrates(min_pilots: int = 0, max_copies_cap: int | None = 4
     # Drop rows with missing archetype
     df = df.dropna(subset=['deck_archetype']).copy()
 
+    pairings_csv = event_path / f"{event_name} pairings.csv"
+    normalizer = DecklistScraper().normalize_player_name
+    pilot_results_lookup: Dict[str, Dict[str, int]] = {}
+    if pairings_csv.exists():
+        pairings_df = pd.read_csv(pairings_csv)
+
+        # Round filtering precedence:
+        # 1) CONSTRUCTED_ROUND_IDS env (explicit allow-list)
+        # 2) standings round files in event dir (best-effort constructed proxy)
+        # 3) no round filter
+        explicit_constructed = _parse_round_id_env(os.getenv("CONSTRUCTED_ROUND_IDS", ""))
+        file_constructed = _get_constructed_round_ids_from_file(event_path)
+        standings_round_ids = _get_constructed_round_ids_from_standings_files(event_path)
+
+        include_round_ids: Set[int] = set()
+        event_type = (os.getenv("EVENT_TYPE") or "constructed").strip().lower()
+        event_id_raw = (os.getenv("EVENT_ID") or "").strip()
+        if event_id_raw.isdigit():
+            try:
+                classified = classify_event_round_ids(requests.Session(), int(event_id_raw), event_type, mode="pairings")
+                include_round_ids = set(int(x) for x in classified.get("constructed_ids", []))
+                limited_round_ids = sorted(int(x) for x in classified.get("limited_ids", []))
+                if limited_round_ids:
+                    print(f"Detected limited rounds from event type ({event_type}): {limited_round_ids}")
+            except Exception as exc:
+                print(f"Warning: failed to classify rounds from event metadata: {exc}")
+
+        if not include_round_ids:
+            include_round_ids = explicit_constructed or file_constructed or standings_round_ids
+
+        if include_round_ids and "RoundId" in pairings_df.columns:
+            before = len(pairings_df)
+            pairings_df = pairings_df[pd.to_numeric(pairings_df["RoundId"], errors="coerce").isin(include_round_ids)].copy()
+            after = len(pairings_df)
+            print(
+                f"Filtering pairings to constructed rounds: {sorted(include_round_ids)} "
+                f"({before} -> {after} rows)"
+            )
+        else:
+            print("No constructed round filter found; using all pairings rounds.")
+
+        constructed_pilots = {
+            normalizer(str(p).strip())
+            for p in df['player'].dropna().astype(str).str.strip().unique().tolist()
+            if str(p).strip()
+        }
+        pilot_results_lookup = build_pilot_result_lookup_from_pairings(
+            pairings_df,
+            pilots=sorted(constructed_pilots),
+            constructed_pilots=constructed_pilots,
+        )
+    else:
+        print(f"Pairings CSV not found at {pairings_csv}; falling back to standings-derived wins/losses")
+
+    # Keep canonical lowercase columns and let the helper normalize names.
+    # This avoids creating duplicate "Wins"/"Losses" columns via renaming.
+    if pilot_results_lookup:
+        df["wins"] = df["player"].map(lambda p: pilot_results_lookup.get(normalizer(str(p).strip()), {}).get("Wins", 0))
+        df["losses"] = df["player"].map(lambda p: pilot_results_lookup.get(normalizer(str(p).strip()), {}).get("Losses", 0))
+    else:
+        df["wins"] = pd.to_numeric(df["wins"], errors="coerce").fillna(0).astype(int)
+        df["losses"] = pd.to_numeric(df["losses"], errors="coerce").fillna(0).astype(int)
+
     archetypes = sorted(df['deck_archetype'].dropna().unique().tolist())
     print(f"Found {len(archetypes)} unique archetypes in decklists")
 
-    written_files: list[Path] = []
+    written_files: List[Path] = []
     for archetype in archetypes:
         try:
             tbl = archetype_card_copy_winrates(
@@ -80,4 +258,6 @@ def create_all_card_winrates(min_pilots: int = 0, max_copies_cap: int | None = 4
 
 
 if __name__ == '__main__':
-    create_all_card_winrates()
+    written = create_all_card_winrates()
+    if not written:
+        raise SystemExit("No card winrate files were generated.")
