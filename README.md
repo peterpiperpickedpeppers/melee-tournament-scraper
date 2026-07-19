@@ -134,5 +134,9 @@ In CI, pass MELEE_COOKIE via repository secrets; do not hardcode or commit it.
 - Mirror matches are intentionally excluded from matchup summaries.
 - Decklist and player names are stripped at fetch time to avoid whitespace bugs.
 - Card winrates are written to `data/<EVENT_NAME>/card_winrates/` as one CSV per archetype, covering 0..N copies per card and location (main/side).
+- Card winrates also generate an HTML report by default at `data/<EVENT_NAME>/card_winrates_html/index.html`, with one linked page per archetype (sortable/filterable table, sticky header, and Win% heat shading).
+- Optional card-winrate report toggles:
+  - `CARD_WINRATES_HTML=0` disables HTML report generation (CSV output is still written).
+  - `CARD_WINRATES_OPEN_HTML=1` auto-opens the HTML index page after generation.
 
 License: MIT
