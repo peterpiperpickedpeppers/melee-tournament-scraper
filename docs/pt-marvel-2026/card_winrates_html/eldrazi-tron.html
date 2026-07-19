@@ -1,0 +1,3555 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PT Marvel 2026 - Eldrazi Tron Card Winrates</title>
+    <style>
+        :root {
+            --bg: #f7faf8;
+            --panel: #ffffff;
+            --ink: #1f2a2e;
+            --muted: #5f6f75;
+            --line: #dde6e2;
+        }
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            color: var(--ink);
+            background: linear-gradient(180deg, #ecf4ef 0%, var(--bg) 45%);
+        }
+        .wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+        .header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--line);
+            background: #f4faf6;
+        }
+        h1 { margin: 0; font-size: 22px; }
+        .meta { color: var(--muted); margin-top: 6px; font-size: 13px; }
+        .toolbar {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        input[type="search"] {
+            width: min(420px, 100%);
+            padding: 8px 10px;
+            border: 1px solid #cdd8d2;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .table-wrap { overflow: auto; max-height: 78vh; }
+        table.winrate-table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        table.winrate-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background: #eef5f2;
+            border-bottom: 1px solid #cfdcd6;
+            padding: 10px;
+            text-align: left;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        table.winrate-table td { border-bottom: 1px solid #edf2ef; padding: 9px 10px; }
+        table.winrate-table tbody tr:nth-child(even) { background: #fbfdfc; }
+        table.winrate-table td:nth-child(n+4),
+        table.winrate-table th:nth-child(n+4) { text-align: right; }
+        .footer { padding: 12px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+        a { color: #1e6b59; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="card">
+            <div class="header">
+                <h1>Eldrazi Tron Card Winrates by Copy Count</h1>
+                <div class="meta">Event: PT Marvel 2026 | Generated: 2026-07-19 01:18:57 UTC</div>
+            </div>
+            <div class="toolbar">
+                <a href="index.html">Back to index</a>
+                <input id="tableSearch" type="search" placeholder="Filter rows (card name, loc, copies, etc.)" />
+            </div>
+            <div class="table-wrap"><table class="dataframe winrate-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>card</th>
+      <th>loc</th>
+      <th>deck_archetype</th>
+      <th>Copies</th>
+      <th># of Pilots</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Win%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>21</td>
+      <td>129</td>
+      <td>130</td>
+      <td>49.81%</td>
+    </tr>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>14</td>
+      <td>89</td>
+      <td>86</td>
+      <td>50.86%</td>
+    </tr>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>14</td>
+      <td>94</td>
+      <td>90</td>
+      <td>51.09%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>19</td>
+      <td>116</td>
+      <td>112</td>
+      <td>50.88%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>2</td>
+      <td>8</td>
+      <td>14</td>
+      <td>36.36%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>211</td>
+      <td>208</td>
+      <td>50.36%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>8</td>
+      <td>46.67%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>All Is Dust</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cavern of Souls</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>30</td>
+      <td>180</td>
+      <td>185</td>
+      <td>49.32%</td>
+    </tr>
+    <tr>
+      <td>Cavern of Souls</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>5</td>
+      <td>38</td>
+      <td>31</td>
+      <td>55.07%</td>
+    </tr>
+    <tr>
+      <td>Cavern of Souls</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cavern of Souls</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cavern of Souls</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>3</td>
+      <td>15</td>
+      <td>22</td>
+      <td>40.54%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>19</td>
+      <td>113</td>
+      <td>117</td>
+      <td>49.13%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>13</td>
+      <td>90</td>
+      <td>77</td>
+      <td>53.89%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>24</td>
+      <td>152</td>
+      <td>148</td>
+      <td>50.67%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>9</td>
+      <td>52</td>
+      <td>51</td>
+      <td>50.49%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>2</td>
+      <td>14</td>
+      <td>17</td>
+      <td>45.16%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Chalice of the Void</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cityscape Leveler</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>5</td>
+      <td>38</td>
+      <td>31</td>
+      <td>55.07%</td>
+    </tr>
+    <tr>
+      <td>Cityscape Leveler</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>30</td>
+      <td>180</td>
+      <td>185</td>
+      <td>49.32%</td>
+    </tr>
+    <tr>
+      <td>Cityscape Leveler</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cityscape Leveler</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cityscape Leveler</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Crucible of Worlds</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>32</td>
+      <td>209</td>
+      <td>197</td>
+      <td>51.48%</td>
+    </tr>
+    <tr>
+      <td>Crucible of Worlds</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>3</td>
+      <td>9</td>
+      <td>19</td>
+      <td>32.14%</td>
+    </tr>
+    <tr>
+      <td>Crucible of Worlds</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Crucible of Worlds</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Crucible of Worlds</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cursed Totem</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>217</td>
+      <td>211</td>
+      <td>50.70%</td>
+    </tr>
+    <tr>
+      <td>Cursed Totem</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>16.67%</td>
+    </tr>
+    <tr>
+      <td>Cursed Totem</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cursed Totem</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cursed Totem</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Damping Sphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>22</td>
+      <td>130</td>
+      <td>136</td>
+      <td>48.87%</td>
+    </tr>
+    <tr>
+      <td>Damping Sphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>13</td>
+      <td>88</td>
+      <td>80</td>
+      <td>52.38%</td>
+    </tr>
+    <tr>
+      <td>Damping Sphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Damping Sphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Damping Sphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Darksteel Citadel</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>33</td>
+      <td>214</td>
+      <td>209</td>
+      <td>50.59%</td>
+    </tr>
+    <tr>
+      <td>Darksteel Citadel</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>7</td>
+      <td>36.36%</td>
+    </tr>
+    <tr>
+      <td>Darksteel Citadel</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Darksteel Citadel</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Darksteel Citadel</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Devourer of Destiny</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Devourer of Destiny</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Devourer of Destiny</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Devourer of Destiny</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>2</td>
+      <td>14</td>
+      <td>17</td>
+      <td>45.16%</td>
+    </tr>
+    <tr>
+      <td>Devourer of Destiny</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>33</td>
+      <td>204</td>
+      <td>199</td>
+      <td>50.62%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>9</td>
+      <td>43.75%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>16</td>
+      <td>85</td>
+      <td>96</td>
+      <td>46.96%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>18</td>
+      <td>126</td>
+      <td>111</td>
+      <td>53.16%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>19</td>
+      <td>109</td>
+      <td>118</td>
+      <td>48.02%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>16</td>
+      <td>109</td>
+      <td>98</td>
+      <td>52.66%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>7</td>
+      <td>37</td>
+      <td>45</td>
+      <td>45.12%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>27</td>
+      <td>173</td>
+      <td>163</td>
+      <td>51.49%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Disruptor Flute</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Eldrazi Temple</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Eldrazi Temple</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Eldrazi Temple</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Eldrazi Temple</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Eldrazi Temple</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Emrakul, the Promised End</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>9</td>
+      <td>45</td>
+      <td>58</td>
+      <td>43.69%</td>
+    </tr>
+    <tr>
+      <td>Emrakul, the Promised End</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>11</td>
+      <td>71</td>
+      <td>69</td>
+      <td>50.71%</td>
+    </tr>
+    <tr>
+      <td>Emrakul, the Promised End</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>15</td>
+      <td>102</td>
+      <td>89</td>
+      <td>53.40%</td>
+    </tr>
+    <tr>
+      <td>Emrakul, the Promised End</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Emrakul, the Promised End</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ensnaring Bridge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ensnaring Bridge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Ensnaring Bridge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ensnaring Bridge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ensnaring Bridge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Everflowing Chalice</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>207</td>
+      <td>212</td>
+      <td>49.40%</td>
+    </tr>
+    <tr>
+      <td>Everflowing Chalice</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Everflowing Chalice</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>11</td>
+      <td>4</td>
+      <td>73.33%</td>
+    </tr>
+    <tr>
+      <td>Everflowing Chalice</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Everflowing Chalice</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Expedition Map</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Expedition Map</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Expedition Map</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Expedition Map</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>Expedition Map</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>34</td>
+      <td>217</td>
+      <td>210</td>
+      <td>50.82%</td>
+    </tr>
+    <tr>
+      <td>Extinguisher Battleship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>5</td>
+      <td>27</td>
+      <td>34</td>
+      <td>44.26%</td>
+    </tr>
+    <tr>
+      <td>Extinguisher Battleship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>30</td>
+      <td>191</td>
+      <td>182</td>
+      <td>51.21%</td>
+    </tr>
+    <tr>
+      <td>Extinguisher Battleship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Extinguisher Battleship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Extinguisher Battleship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>217</td>
+      <td>210</td>
+      <td>50.82%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>24</td>
+      <td>164</td>
+      <td>149</td>
+      <td>52.40%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>8</td>
+      <td>30</td>
+      <td>44</td>
+      <td>40.54%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>2</td>
+      <td>16</td>
+      <td>15</td>
+      <td>51.61%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>29</td>
+      <td>179</td>
+      <td>180</td>
+      <td>49.86%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>2</td>
+      <td>10</td>
+      <td>12</td>
+      <td>45.45%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>4</td>
+      <td>29</td>
+      <td>24</td>
+      <td>54.72%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Glaring Fleshraker</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Grafdigger's Cage</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>22</td>
+      <td>142</td>
+      <td>130</td>
+      <td>52.21%</td>
+    </tr>
+    <tr>
+      <td>Grafdigger's Cage</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>12</td>
+      <td>71</td>
+      <td>80</td>
+      <td>47.02%</td>
+    </tr>
+    <tr>
+      <td>Grafdigger's Cage</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+      <td>45.45%</td>
+    </tr>
+    <tr>
+      <td>Grafdigger's Cage</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Grafdigger's Cage</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Haywire Mite</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>217</td>
+      <td>210</td>
+      <td>50.82%</td>
+    </tr>
+    <tr>
+      <td>Haywire Mite</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>Haywire Mite</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Haywire Mite</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Haywire Mite</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Karn Liberated</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>30</td>
+      <td>184</td>
+      <td>180</td>
+      <td>50.55%</td>
+    </tr>
+    <tr>
+      <td>Karn Liberated</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>5</td>
+      <td>34</td>
+      <td>36</td>
+      <td>48.57%</td>
+    </tr>
+    <tr>
+      <td>Karn Liberated</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Karn Liberated</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Karn Liberated</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Karn, the Great Creator</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Karn, the Great Creator</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Karn, the Great Creator</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Karn, the Great Creator</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Karn, the Great Creator</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Kozilek's Command</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Kozilek's Command</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Kozilek's Command</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Kozilek's Command</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Kozilek's Command</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Liquimetal Coating</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Liquimetal Coating</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Liquimetal Coating</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Liquimetal Coating</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Liquimetal Coating</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mind Stone</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>Mind Stone</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mind Stone</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mind Stone</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>15</td>
+      <td>98</td>
+      <td>91</td>
+      <td>51.85%</td>
+    </tr>
+    <tr>
+      <td>Mind Stone</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>19</td>
+      <td>119</td>
+      <td>119</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Mystic Forge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>209</td>
+      <td>209</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Mystic Forge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>7</td>
+      <td>56.25%</td>
+    </tr>
+    <tr>
+      <td>Mystic Forge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mystic Forge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mystic Forge</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Oblivion Stone</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>21</td>
+      <td>121</td>
+      <td>129</td>
+      <td>48.40%</td>
+    </tr>
+    <tr>
+      <td>Oblivion Stone</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>14</td>
+      <td>97</td>
+      <td>87</td>
+      <td>52.72%</td>
+    </tr>
+    <tr>
+      <td>Oblivion Stone</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Oblivion Stone</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Oblivion Stone</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Phyrexian Metamorph</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>217</td>
+      <td>210</td>
+      <td>50.82%</td>
+    </tr>
+    <tr>
+      <td>Phyrexian Metamorph</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>Phyrexian Metamorph</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Phyrexian Metamorph</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Phyrexian Metamorph</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Pithing Needle</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>20</td>
+      <td>122</td>
+      <td>124</td>
+      <td>49.59%</td>
+    </tr>
+    <tr>
+      <td>Pithing Needle</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>15</td>
+      <td>96</td>
+      <td>92</td>
+      <td>51.06%</td>
+    </tr>
+    <tr>
+      <td>Pithing Needle</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Pithing Needle</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Pithing Needle</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Planetarium of Wan Shi Tong</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>33</td>
+      <td>204</td>
+      <td>207</td>
+      <td>49.64%</td>
+    </tr>
+    <tr>
+      <td>Planetarium of Wan Shi Tong</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>2</td>
+      <td>14</td>
+      <td>9</td>
+      <td>60.87%</td>
+    </tr>
+    <tr>
+      <td>Planetarium of Wan Shi Tong</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Planetarium of Wan Shi Tong</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Planetarium of Wan Shi Tong</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ratchet Bomb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>33</td>
+      <td>200</td>
+      <td>203</td>
+      <td>49.63%</td>
+    </tr>
+    <tr>
+      <td>Ratchet Bomb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>2</td>
+      <td>18</td>
+      <td>13</td>
+      <td>58.06%</td>
+    </tr>
+    <tr>
+      <td>Ratchet Bomb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ratchet Bomb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ratchet Bomb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>217</td>
+      <td>210</td>
+      <td>50.82%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Sire of Seven Deaths</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>20</td>
+      <td>128</td>
+      <td>119</td>
+      <td>51.82%</td>
+    </tr>
+    <tr>
+      <td>Sire of Seven Deaths</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>3</td>
+      <td>11</td>
+      <td>17</td>
+      <td>39.29%</td>
+    </tr>
+    <tr>
+      <td>Sire of Seven Deaths</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>6</td>
+      <td>34</td>
+      <td>40</td>
+      <td>45.95%</td>
+    </tr>
+    <tr>
+      <td>Sire of Seven Deaths</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>6</td>
+      <td>45</td>
+      <td>40</td>
+      <td>52.94%</td>
+    </tr>
+    <tr>
+      <td>Sire of Seven Deaths</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Skysovereign, Consul Flagship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>26</td>
+      <td>166</td>
+      <td>166</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Skysovereign, Consul Flagship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>9</td>
+      <td>52</td>
+      <td>50</td>
+      <td>50.98%</td>
+    </tr>
+    <tr>
+      <td>Skysovereign, Consul Flagship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Skysovereign, Consul Flagship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Skysovereign, Consul Flagship</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>31</td>
+      <td>194</td>
+      <td>186</td>
+      <td>51.05%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>4</td>
+      <td>24</td>
+      <td>30</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>210</td>
+      <td>208</td>
+      <td>50.24%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Soulless Jailer</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>24</td>
+      <td>162</td>
+      <td>146</td>
+      <td>52.60%</td>
+    </tr>
+    <tr>
+      <td>Soulless Jailer</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>7</td>
+      <td>30</td>
+      <td>42</td>
+      <td>41.67%</td>
+    </tr>
+    <tr>
+      <td>Soulless Jailer</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>4</td>
+      <td>26</td>
+      <td>28</td>
+      <td>48.15%</td>
+    </tr>
+    <tr>
+      <td>Soulless Jailer</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Soulless Jailer</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Sowing Mycospawn</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>217</td>
+      <td>210</td>
+      <td>50.82%</td>
+    </tr>
+    <tr>
+      <td>Sowing Mycospawn</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Sowing Mycospawn</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Sowing Mycospawn</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Sowing Mycospawn</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>Swamp</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>2</td>
+      <td>8</td>
+      <td>15</td>
+      <td>34.78%</td>
+    </tr>
+    <tr>
+      <td>Swamp</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>20</td>
+      <td>122</td>
+      <td>121</td>
+      <td>50.21%</td>
+    </tr>
+    <tr>
+      <td>Swamp</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>13</td>
+      <td>88</td>
+      <td>80</td>
+      <td>52.38%</td>
+    </tr>
+    <tr>
+      <td>Swamp</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Swamp</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Curiosity</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>217</td>
+      <td>210</td>
+      <td>50.82%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Curiosity</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Curiosity</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Curiosity</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Curiosity</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Resilience</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>217</td>
+      <td>210</td>
+      <td>50.82%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Resilience</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Resilience</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Resilience</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Talisman of Resilience</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>The Filigree Sylex</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>3</td>
+      <td>19</td>
+      <td>17</td>
+      <td>52.78%</td>
+    </tr>
+    <tr>
+      <td>The Filigree Sylex</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>32</td>
+      <td>199</td>
+      <td>199</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>The Filigree Sylex</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Filigree Sylex</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Filigree Sylex</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Stone Brain</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>9</td>
+      <td>56</td>
+      <td>57</td>
+      <td>49.56%</td>
+    </tr>
+    <tr>
+      <td>The Stone Brain</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>26</td>
+      <td>162</td>
+      <td>159</td>
+      <td>50.47%</td>
+    </tr>
+    <tr>
+      <td>The Stone Brain</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Stone Brain</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Stone Brain</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Ten Rings</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>33</td>
+      <td>202</td>
+      <td>201</td>
+      <td>50.12%</td>
+    </tr>
+    <tr>
+      <td>The Ten Rings</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>2</td>
+      <td>16</td>
+      <td>15</td>
+      <td>51.61%</td>
+    </tr>
+    <tr>
+      <td>The Ten Rings</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Ten Rings</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Ten Rings</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Thought-Knot Seer</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>14</td>
+      <td>95</td>
+      <td>89</td>
+      <td>51.63%</td>
+    </tr>
+    <tr>
+      <td>Thought-Knot Seer</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Thought-Knot Seer</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>9</td>
+      <td>7</td>
+      <td>56.25%</td>
+    </tr>
+    <tr>
+      <td>Thought-Knot Seer</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>4</td>
+      <td>27</td>
+      <td>30</td>
+      <td>47.37%</td>
+    </tr>
+    <tr>
+      <td>Thought-Knot Seer</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>16</td>
+      <td>87</td>
+      <td>90</td>
+      <td>49.15%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>34</td>
+      <td>217</td>
+      <td>211</td>
+      <td>50.70%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>16.67%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>34</td>
+      <td>211</td>
+      <td>207</td>
+      <td>50.48%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>7</td>
+      <td>9</td>
+      <td>43.75%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>7</td>
+      <td>36.36%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>25</td>
+      <td>158</td>
+      <td>160</td>
+      <td>49.69%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>8</td>
+      <td>56</td>
+      <td>49</td>
+      <td>53.33%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Torpor Orb</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>4</td>
+      <td>16</td>
+      <td>20</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>14</td>
+      <td>91</td>
+      <td>87</td>
+      <td>51.12%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>15</td>
+      <td>97</td>
+      <td>92</td>
+      <td>51.32%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>2</td>
+      <td>14</td>
+      <td>17</td>
+      <td>45.16%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>4</td>
+      <td>18</td>
+      <td>24</td>
+      <td>42.86%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>28</td>
+      <td>185</td>
+      <td>178</td>
+      <td>50.96%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>3</td>
+      <td>15</td>
+      <td>14</td>
+      <td>51.72%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ugin's Labyrinth</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ugin's Labyrinth</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ugin's Labyrinth</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ugin's Labyrinth</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ugin's Labyrinth</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Ugin, Eye of the Storms</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ugin, Eye of the Storms</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ugin, Eye of the Storms</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ugin, Eye of the Storms</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>10</td>
+      <td>61</td>
+      <td>60</td>
+      <td>50.41%</td>
+    </tr>
+    <tr>
+      <td>Ugin, Eye of the Storms</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>25</td>
+      <td>157</td>
+      <td>156</td>
+      <td>50.16%</td>
+    </tr>
+    <tr>
+      <td>Ulamog, the Ceaseless Hunger</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>21</td>
+      <td>123</td>
+      <td>128</td>
+      <td>49.00%</td>
+    </tr>
+    <tr>
+      <td>Ulamog, the Ceaseless Hunger</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>14</td>
+      <td>95</td>
+      <td>88</td>
+      <td>51.91%</td>
+    </tr>
+    <tr>
+      <td>Ulamog, the Ceaseless Hunger</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ulamog, the Ceaseless Hunger</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ulamog, the Ceaseless Hunger</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Mine</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Mine</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Mine</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Mine</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Mine</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Urza's Power Plant</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Power Plant</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Power Plant</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Power Plant</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Power Plant</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Urza's Tower</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Tower</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Tower</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Tower</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Tower</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>35</td>
+      <td>218</td>
+      <td>216</td>
+      <td>50.23%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>13</td>
+      <td>72</td>
+      <td>76</td>
+      <td>48.65%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>21</td>
+      <td>139</td>
+      <td>132</td>
+      <td>51.29%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>1</td>
+      <td>7</td>
+      <td>8</td>
+      <td>46.67%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>27</td>
+      <td>174</td>
+      <td>163</td>
+      <td>51.63%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>8</td>
+      <td>44</td>
+      <td>53</td>
+      <td>45.36%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Walking Ballista</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>12</td>
+      <td>73</td>
+      <td>79</td>
+      <td>48.03%</td>
+    </tr>
+    <tr>
+      <td>Walking Ballista</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>23</td>
+      <td>145</td>
+      <td>137</td>
+      <td>51.42%</td>
+    </tr>
+    <tr>
+      <td>Walking Ballista</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Walking Ballista</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Walking Ballista</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Warping Wail</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>33</td>
+      <td>212</td>
+      <td>205</td>
+      <td>50.84%</td>
+    </tr>
+    <tr>
+      <td>Warping Wail</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+      <td>45.45%</td>
+    </tr>
+    <tr>
+      <td>Warping Wail</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>16.67%</td>
+    </tr>
+    <tr>
+      <td>Warping Wail</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Warping Wail</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>20</td>
+      <td>123</td>
+      <td>127</td>
+      <td>49.20%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>14</td>
+      <td>88</td>
+      <td>80</td>
+      <td>52.38%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>1</td>
+      <td>7</td>
+      <td>9</td>
+      <td>43.75%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>main</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>0</td>
+      <td>30</td>
+      <td>187</td>
+      <td>187</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>1</td>
+      <td>5</td>
+      <td>31</td>
+      <td>29</td>
+      <td>51.67%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Wastes</td>
+      <td>side</td>
+      <td>Eldrazi Tron</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+  </tbody>
+</table></div>
+            <div class="footer">Tip: click column headers to sort.</div>
+        </div>
+    </div>
+    <script>
+        const table = document.querySelector('table.winrate-table');
+        const rows = Array.from(table.tBodies[0].rows);
+        const search = document.getElementById('tableSearch');
+
+        search.addEventListener('input', () => {
+            const q = search.value.toLowerCase().trim();
+            for (const r of rows) {
+                r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none';
+            }
+        });
+
+        function toSortValue(text) {
+            const cleaned = text.replace('%', '').replace(/,/g, '').trim();
+            const n = Number(cleaned);
+            return Number.isNaN(n) ? text.toLowerCase() : n;
+        }
+
+        Array.from(table.tHead.rows[0].cells).forEach((th, idx) => {
+            let asc = true;
+            th.addEventListener('click', () => {
+                rows.sort((a, b) => {
+                    const av = toSortValue(a.cells[idx]?.textContent || '');
+                    const bv = toSortValue(b.cells[idx]?.textContent || '');
+                    if (av < bv) return asc ? -1 : 1;
+                    if (av > bv) return asc ? 1 : -1;
+                    return 0;
+                });
+                asc = !asc;
+                for (const r of rows) table.tBodies[0].appendChild(r);
+            });
+        });
+
+        const pctColIndex = Array.from(table.tHead.rows[0].cells).findIndex(
+            (c) => c.textContent.trim() === 'Win%'
+        );
+        if (pctColIndex >= 0) {
+            for (const r of rows) {
+                const cell = r.cells[pctColIndex];
+                const v = Number((cell.textContent || '').replace('%', '').trim());
+                if (!Number.isNaN(v)) {
+                    const hue = Math.max(0, Math.min(120, v * 1.2));
+                    cell.style.backgroundColor = `hsl(${hue} 70% 88%)`;
+                    cell.style.fontWeight = '600';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

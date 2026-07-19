@@ -1,0 +1,3055 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PT Marvel 2026 - Amulet Titan Card Winrates</title>
+    <style>
+        :root {
+            --bg: #f7faf8;
+            --panel: #ffffff;
+            --ink: #1f2a2e;
+            --muted: #5f6f75;
+            --line: #dde6e2;
+        }
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            color: var(--ink);
+            background: linear-gradient(180deg, #ecf4ef 0%, var(--bg) 45%);
+        }
+        .wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+        .header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--line);
+            background: #f4faf6;
+        }
+        h1 { margin: 0; font-size: 22px; }
+        .meta { color: var(--muted); margin-top: 6px; font-size: 13px; }
+        .toolbar {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        input[type="search"] {
+            width: min(420px, 100%);
+            padding: 8px 10px;
+            border: 1px solid #cdd8d2;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .table-wrap { overflow: auto; max-height: 78vh; }
+        table.winrate-table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        table.winrate-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background: #eef5f2;
+            border-bottom: 1px solid #cfdcd6;
+            padding: 10px;
+            text-align: left;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        table.winrate-table td { border-bottom: 1px solid #edf2ef; padding: 9px 10px; }
+        table.winrate-table tbody tr:nth-child(even) { background: #fbfdfc; }
+        table.winrate-table td:nth-child(n+4),
+        table.winrate-table th:nth-child(n+4) { text-align: right; }
+        .footer { padding: 12px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+        a { color: #1e6b59; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="card">
+            <div class="header">
+                <h1>Amulet Titan Card Winrates by Copy Count</h1>
+                <div class="meta">Event: PT Marvel 2026 | Generated: 2026-07-19 01:18:57 UTC</div>
+            </div>
+            <div class="toolbar">
+                <a href="index.html">Back to index</a>
+                <input id="tableSearch" type="search" placeholder="Filter rows (card name, loc, copies, etc.)" />
+            </div>
+            <div class="table-wrap"><table class="dataframe winrate-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>card</th>
+      <th>loc</th>
+      <th>deck_archetype</th>
+      <th>Copies</th>
+      <th># of Pilots</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Win%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>144</td>
+      <td>152</td>
+      <td>48.65%</td>
+    </tr>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Abstergo Entertainment</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Aftermath Analyst</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Aftermath Analyst</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Aftermath Analyst</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Aftermath Analyst</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Aftermath Analyst</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Amulet of Vigor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Amulet of Vigor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Amulet of Vigor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Amulet of Vigor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Amulet of Vigor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Arboreal Grazer</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Arboreal Grazer</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Arboreal Grazer</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Arboreal Grazer</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Arboreal Grazer</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Azusa, Lost but Seeking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>135</td>
+      <td>152</td>
+      <td>47.04%</td>
+    </tr>
+    <tr>
+      <td>Azusa, Lost but Seeking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>11</td>
+      <td>5</td>
+      <td>68.75%</td>
+    </tr>
+    <tr>
+      <td>Azusa, Lost but Seeking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Azusa, Lost but Seeking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Azusa, Lost but Seeking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Bojuka Bog</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>12</td>
+      <td>62</td>
+      <td>71</td>
+      <td>46.62%</td>
+    </tr>
+    <tr>
+      <td>Bojuka Bog</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>13</td>
+      <td>84</td>
+      <td>86</td>
+      <td>49.41%</td>
+    </tr>
+    <tr>
+      <td>Bojuka Bog</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Bojuka Bog</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Bojuka Bog</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>2</td>
+      <td>14</td>
+      <td>10</td>
+      <td>58.33%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>23</td>
+      <td>132</td>
+      <td>147</td>
+      <td>47.31%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>23</td>
+      <td>132</td>
+      <td>147</td>
+      <td>47.31%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>2</td>
+      <td>14</td>
+      <td>10</td>
+      <td>58.33%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Boseiju, Who Endures</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cephalid Coliseum</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>138</td>
+      <td>149</td>
+      <td>48.08%</td>
+    </tr>
+    <tr>
+      <td>Cephalid Coliseum</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Cephalid Coliseum</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cephalid Coliseum</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cephalid Coliseum</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Collector Ouphe</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Collector Ouphe</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>24</td>
+      <td>138</td>
+      <td>149</td>
+      <td>48.08%</td>
+    </tr>
+    <tr>
+      <td>Collector Ouphe</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Collector Ouphe</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Collector Ouphe</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Crumbling Vestige</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Crumbling Vestige</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Crumbling Vestige</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Crumbling Vestige</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Crumbling Vestige</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Cultivator Colossus</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cultivator Colossus</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Cultivator Colossus</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cultivator Colossus</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cultivator Colossus</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>37.50%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>24</td>
+      <td>143</td>
+      <td>152</td>
+      <td>48.47%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Dismember</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Dryad Arbor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Dryad Arbor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>24</td>
+      <td>138</td>
+      <td>149</td>
+      <td>48.08%</td>
+    </tr>
+    <tr>
+      <td>Dryad Arbor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Dryad Arbor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Dryad Arbor</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Echoing Deeps</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Echoing Deeps</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Echoing Deeps</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Echoing Deeps</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Echoing Deeps</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Elesh Norn, Mother of Machines</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>143</td>
+      <td>152</td>
+      <td>48.47%</td>
+    </tr>
+    <tr>
+      <td>Elesh Norn, Mother of Machines</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Elesh Norn, Mother of Machines</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>37.50%</td>
+    </tr>
+    <tr>
+      <td>Elesh Norn, Mother of Machines</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Elesh Norn, Mother of Machines</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Explore</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>23</td>
+      <td>136</td>
+      <td>143</td>
+      <td>48.75%</td>
+    </tr>
+    <tr>
+      <td>Explore</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>2</td>
+      <td>10</td>
+      <td>14</td>
+      <td>41.67%</td>
+    </tr>
+    <tr>
+      <td>Explore</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Explore</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Explore</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Faerie Macabre</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>144</td>
+      <td>152</td>
+      <td>48.65%</td>
+    </tr>
+    <tr>
+      <td>Faerie Macabre</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>Faerie Macabre</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Faerie Macabre</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Faerie Macabre</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Firespout</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>18</td>
+      <td>94</td>
+      <td>109</td>
+      <td>46.31%</td>
+    </tr>
+    <tr>
+      <td>Firespout</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Firespout</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>6</td>
+      <td>44</td>
+      <td>40</td>
+      <td>52.38%</td>
+    </tr>
+    <tr>
+      <td>Firespout</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Firespout</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Force of Vigor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Force of Vigor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>2</td>
+      <td>14</td>
+      <td>10</td>
+      <td>58.33%</td>
+    </tr>
+    <tr>
+      <td>Force of Vigor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>17</td>
+      <td>87</td>
+      <td>104</td>
+      <td>45.55%</td>
+    </tr>
+    <tr>
+      <td>Force of Vigor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>6</td>
+      <td>45</td>
+      <td>43</td>
+      <td>51.14%</td>
+    </tr>
+    <tr>
+      <td>Force of Vigor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>7</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Forest</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>17</td>
+      <td>88</td>
+      <td>99</td>
+      <td>47.06%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>10</td>
+      <td>60</td>
+      <td>66</td>
+      <td>47.62%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>14</td>
+      <td>78</td>
+      <td>83</td>
+      <td>48.45%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>138</td>
+      <td>149</td>
+      <td>48.08%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Green Sun's Zenith</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Gruul Turf</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Gruul Turf</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>37.50%</td>
+    </tr>
+    <tr>
+      <td>Gruul Turf</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>13</td>
+      <td>74</td>
+      <td>83</td>
+      <td>47.13%</td>
+    </tr>
+    <tr>
+      <td>Gruul Turf</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>4</td>
+      <td>17</td>
+      <td>21</td>
+      <td>44.74%</td>
+    </tr>
+    <tr>
+      <td>Gruul Turf</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>7</td>
+      <td>52</td>
+      <td>48</td>
+      <td>52.00%</td>
+    </tr>
+    <tr>
+      <td>Guerrilla Gorilla</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>135</td>
+      <td>152</td>
+      <td>47.04%</td>
+    </tr>
+    <tr>
+      <td>Guerrilla Gorilla</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>11</td>
+      <td>5</td>
+      <td>68.75%</td>
+    </tr>
+    <tr>
+      <td>Guerrilla Gorilla</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Guerrilla Gorilla</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Guerrilla Gorilla</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Hanweir Battlements</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Hanweir Battlements</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Hanweir Battlements</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Hanweir Battlements</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Hanweir Battlements</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Icetill Explorer</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>144</td>
+      <td>152</td>
+      <td>48.65%</td>
+    </tr>
+    <tr>
+      <td>Icetill Explorer</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>Icetill Explorer</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Icetill Explorer</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Icetill Explorer</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Keen-Eyed Curator</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>22</td>
+      <td>128</td>
+      <td>136</td>
+      <td>48.48%</td>
+    </tr>
+    <tr>
+      <td>Keen-Eyed Curator</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>3</td>
+      <td>18</td>
+      <td>21</td>
+      <td>46.15%</td>
+    </tr>
+    <tr>
+      <td>Keen-Eyed Curator</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Keen-Eyed Curator</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Keen-Eyed Curator</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Malevolent Rumble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Malevolent Rumble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Malevolent Rumble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>9</td>
+      <td>72</td>
+      <td>60</td>
+      <td>54.55%</td>
+    </tr>
+    <tr>
+      <td>Malevolent Rumble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>7</td>
+      <td>29</td>
+      <td>41</td>
+      <td>41.43%</td>
+    </tr>
+    <tr>
+      <td>Malevolent Rumble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>9</td>
+      <td>45</td>
+      <td>56</td>
+      <td>44.55%</td>
+    </tr>
+    <tr>
+      <td>Mind into Matter</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>137</td>
+      <td>150</td>
+      <td>47.74%</td>
+    </tr>
+    <tr>
+      <td>Mind into Matter</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>7</td>
+      <td>56.25%</td>
+    </tr>
+    <tr>
+      <td>Mind into Matter</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mind into Matter</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mind into Matter</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mirrorpool</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mirrorpool</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Mirrorpool</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mirrorpool</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mirrorpool</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mjölnir, Hammer of Thor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>20</td>
+      <td>128</td>
+      <td>129</td>
+      <td>49.81%</td>
+    </tr>
+    <tr>
+      <td>Mjölnir, Hammer of Thor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>4</td>
+      <td>10</td>
+      <td>20</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Mjölnir, Hammer of Thor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Mjölnir, Hammer of Thor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Mjölnir, Hammer of Thor</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>144</td>
+      <td>152</td>
+      <td>48.65%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Primeval Titan</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Primeval Titan</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Primeval Titan</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Primeval Titan</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>24</td>
+      <td>138</td>
+      <td>149</td>
+      <td>48.08%</td>
+    </tr>
+    <tr>
+      <td>Primeval Titan</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>137</td>
+      <td>150</td>
+      <td>47.74%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>7</td>
+      <td>56.25%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Relic of Progenitus</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ruric Thar, the Unbowed</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>20</td>
+      <td>122</td>
+      <td>126</td>
+      <td>49.19%</td>
+    </tr>
+    <tr>
+      <td>Ruric Thar, the Unbowed</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>5</td>
+      <td>24</td>
+      <td>31</td>
+      <td>43.64%</td>
+    </tr>
+    <tr>
+      <td>Ruric Thar, the Unbowed</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ruric Thar, the Unbowed</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Ruric Thar, the Unbowed</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Scapeshift</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Scapeshift</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Scapeshift</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Scapeshift</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Scapeshift</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>24</td>
+      <td>138</td>
+      <td>149</td>
+      <td>48.08%</td>
+    </tr>
+    <tr>
+      <td>Scavenger Grounds</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>16</td>
+      <td>97</td>
+      <td>104</td>
+      <td>48.26%</td>
+    </tr>
+    <tr>
+      <td>Scavenger Grounds</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>9</td>
+      <td>49</td>
+      <td>53</td>
+      <td>48.04%</td>
+    </tr>
+    <tr>
+      <td>Scavenger Grounds</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Scavenger Grounds</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Scavenger Grounds</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Selesnya Sanctuary</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>143</td>
+      <td>152</td>
+      <td>48.47%</td>
+    </tr>
+    <tr>
+      <td>Selesnya Sanctuary</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Selesnya Sanctuary</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Selesnya Sanctuary</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Selesnya Sanctuary</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>37.50%</td>
+    </tr>
+    <tr>
+      <td>Shifting Woodland</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Shifting Woodland</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Shifting Woodland</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Shifting Woodland</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Shifting Woodland</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Simic Growth Chamber</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Simic Growth Chamber</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Simic Growth Chamber</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>37.50%</td>
+    </tr>
+    <tr>
+      <td>Simic Growth Chamber</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>8</td>
+      <td>54</td>
+      <td>53</td>
+      <td>50.47%</td>
+    </tr>
+    <tr>
+      <td>Simic Growth Chamber</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>16</td>
+      <td>89</td>
+      <td>99</td>
+      <td>47.34%</td>
+    </tr>
+    <tr>
+      <td>Six</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Six</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>23</td>
+      <td>135</td>
+      <td>144</td>
+      <td>48.39%</td>
+    </tr>
+    <tr>
+      <td>Six</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>37.50%</td>
+    </tr>
+    <tr>
+      <td>Six</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Six</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Skyline Cascade</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>12</td>
+      <td>68</td>
+      <td>73</td>
+      <td>48.23%</td>
+    </tr>
+    <tr>
+      <td>Skyline Cascade</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>13</td>
+      <td>78</td>
+      <td>84</td>
+      <td>48.15%</td>
+    </tr>
+    <tr>
+      <td>Skyline Cascade</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Skyline Cascade</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Skyline Cascade</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>16</td>
+      <td>89</td>
+      <td>99</td>
+      <td>47.34%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>9</td>
+      <td>57</td>
+      <td>58</td>
+      <td>49.57%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Spelunking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Spelunking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Spelunking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Spelunking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Spelunking</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>138</td>
+      <td>149</td>
+      <td>48.08%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>8</td>
+      <td>49</td>
+      <td>50</td>
+      <td>49.49%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>9</td>
+      <td>58</td>
+      <td>60</td>
+      <td>49.15%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>8</td>
+      <td>39</td>
+      <td>47</td>
+      <td>45.35%</td>
+    </tr>
+    <tr>
+      <td>Stock Up</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Summoner's Pact</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Summoner's Pact</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Summoner's Pact</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Summoner's Pact</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Summoner's Pact</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Mycosynth Gardens</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Mycosynth Gardens</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>5</td>
+      <td>27</td>
+      <td>36</td>
+      <td>42.86%</td>
+    </tr>
+    <tr>
+      <td>The Mycosynth Gardens</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>20</td>
+      <td>119</td>
+      <td>121</td>
+      <td>49.58%</td>
+    </tr>
+    <tr>
+      <td>The Mycosynth Gardens</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>The Mycosynth Gardens</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Tolaria West</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Tolaria West</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Tolaria West</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Tolaria West</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Tolaria West</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>19</td>
+      <td>117</td>
+      <td>124</td>
+      <td>48.55%</td>
+    </tr>
+    <tr>
+      <td>Trinisphere</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>5</td>
+      <td>27</td>
+      <td>28</td>
+      <td>49.09%</td>
+    </tr>
+    <tr>
+      <td>Urza's Cave</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>23</td>
+      <td>131</td>
+      <td>140</td>
+      <td>48.34%</td>
+    </tr>
+    <tr>
+      <td>Urza's Cave</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>2</td>
+      <td>15</td>
+      <td>17</td>
+      <td>46.88%</td>
+    </tr>
+    <tr>
+      <td>Urza's Cave</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Cave</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Cave</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Saga</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Saga</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Saga</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Saga</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Urza's Saga</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>25</td>
+      <td>146</td>
+      <td>157</td>
+      <td>48.18%</td>
+    </tr>
+    <tr>
+      <td>Vesuva</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>17</td>
+      <td>88</td>
+      <td>99</td>
+      <td>47.06%</td>
+    </tr>
+    <tr>
+      <td>Vesuva</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>8</td>
+      <td>58</td>
+      <td>58</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Vesuva</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vesuva</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vesuva</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>138</td>
+      <td>149</td>
+      <td>48.08%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>7</td>
+      <td>36</td>
+      <td>43</td>
+      <td>45.57%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>16</td>
+      <td>105</td>
+      <td>104</td>
+      <td>50.24%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>2</td>
+      <td>5</td>
+      <td>10</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Zuran Orb</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>0</td>
+      <td>24</td>
+      <td>137</td>
+      <td>150</td>
+      <td>47.74%</td>
+    </tr>
+    <tr>
+      <td>Zuran Orb</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>7</td>
+      <td>56.25%</td>
+    </tr>
+    <tr>
+      <td>Zuran Orb</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Zuran Orb</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Zuran Orb</td>
+      <td>main</td>
+      <td>Amulet Titan</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+  </tbody>
+</table></div>
+            <div class="footer">Tip: click column headers to sort.</div>
+        </div>
+    </div>
+    <script>
+        const table = document.querySelector('table.winrate-table');
+        const rows = Array.from(table.tBodies[0].rows);
+        const search = document.getElementById('tableSearch');
+
+        search.addEventListener('input', () => {
+            const q = search.value.toLowerCase().trim();
+            for (const r of rows) {
+                r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none';
+            }
+        });
+
+        function toSortValue(text) {
+            const cleaned = text.replace('%', '').replace(/,/g, '').trim();
+            const n = Number(cleaned);
+            return Number.isNaN(n) ? text.toLowerCase() : n;
+        }
+
+        Array.from(table.tHead.rows[0].cells).forEach((th, idx) => {
+            let asc = true;
+            th.addEventListener('click', () => {
+                rows.sort((a, b) => {
+                    const av = toSortValue(a.cells[idx]?.textContent || '');
+                    const bv = toSortValue(b.cells[idx]?.textContent || '');
+                    if (av < bv) return asc ? -1 : 1;
+                    if (av > bv) return asc ? 1 : -1;
+                    return 0;
+                });
+                asc = !asc;
+                for (const r of rows) table.tBodies[0].appendChild(r);
+            });
+        });
+
+        const pctColIndex = Array.from(table.tHead.rows[0].cells).findIndex(
+            (c) => c.textContent.trim() === 'Win%'
+        );
+        if (pctColIndex >= 0) {
+            for (const r of rows) {
+                const cell = r.cells[pctColIndex];
+                const v = Number((cell.textContent || '').replace('%', '').trim());
+                if (!Number.isNaN(v)) {
+                    const hue = Math.max(0, Math.min(120, v * 1.2));
+                    cell.style.backgroundColor = `hsl(${hue} 70% 88%)`;
+                    cell.style.fontWeight = '600';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

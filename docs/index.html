@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tournament Pages</title>
+    <style>
+        :root {
+            --bg: #f5f8f6;
+            --panel: #ffffff;
+            --ink: #1f2a2e;
+            --muted: #5f6f75;
+            --line: #dfe8e3;
+            --accent: #1e6b59;
+        }
+        body { margin: 0; font-family: Segoe UI, Arial, sans-serif; color: var(--ink); background: linear-gradient(180deg, #edf5f0 0%, var(--bg) 42%); }
+        .wrap { max-width: 1180px; margin: 0 auto; padding: 24px; }
+        .card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); }
+        .head { padding: 20px 22px; border-bottom: 1px solid var(--line); background: #f4faf7; }
+        h1 { margin: 0; font-size: 24px; }
+        .meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 14px; border-bottom: 1px solid #eef3f0; text-align: left; vertical-align: top; }
+        th { background: #fafdfb; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+        tbody tr:nth-child(even) { background: #fbfdfc; }
+        a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="card">
+            <div class="head">
+                <h1>Tournament Pages</h1>
+                <div class="meta">Click a tournament to open its landing page, then jump into the card-winrate report or heatmap.</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tournament</th>
+                        <th>Card Winrates</th>
+                        <th>Heatmap</th>
+                        <th>Published</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="pt-marvel-2026/index.html">PT Marvel 2026</a></td><td><a href="pt-marvel-2026/card_winrates_html/index.html">Card Winrates</a></td><td><a href="pt-marvel-2026/heatmaps/PT%20Marvel%202026%20win%20matrix%20heatmap%20top15%20crest.png">Heatmap</a></td><td>2026-07-19 05:20:23 UTC</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

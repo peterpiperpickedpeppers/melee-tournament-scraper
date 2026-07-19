@@ -1,0 +1,13 @@
+{
+  "card_winrates_index": "card_winrates_html/index.html",
+  "event_name": "PT Marvel 2026",
+  "heatmaps": [
+    "heatmaps/PT Marvel 2026 win matrix heatmap top15 crest.png",
+    "heatmaps/PT Marvel 2026 win matrix heatmap top15 BuGn.png",
+    "heatmaps/PT Marvel 2026 win matrix heatmap top15 mako.png",
+    "heatmaps/PT Marvel 2026 win matrix heatmap top15.png"
+  ],
+  "published_at": "2026-07-19 05:20:23 UTC",
+  "slug": "pt-marvel-2026",
+  "source_dir": "C:\\Users\\jjwey\\OneDrive\\Desktop\\Repositories\\melee-tournament-scraper\\data\\PT Marvel 2026"
+}

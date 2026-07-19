@@ -29,6 +29,23 @@ This runs all steps in order: fetch data → normalize → matchups → aggregat
 
 Artifacts are written to `data/<EVENT_NAME>/`.
 
+To publish the generated HTML reports and heatmap into GitHub Pages, run:
+
+```bash
+python tools/publish_docs.py
+```
+
+That rebuilds the published site from every publishable event under `data/` and writes it to `docs/`.
+
+If you only want to refresh specific tournaments, pass one or more `--event` arguments:
+
+```bash
+python tools/publish_docs.py --event "RC Houston 2025"
+python tools/publish_docs.py --event "RC Houston 2025" --event "PT Marvel 2026"
+```
+
+The published site uses one folder per tournament at `docs/<EVENT-SLUG>/`, with a root `docs/index.html` that lists tournaments and links to each event page.
+
 ---
 
 ### Alternative: Run individual scripts
@@ -78,6 +95,7 @@ python scripts/create_card_winrates.py
   - `create_win_matrix.py` – CSV win matrix for top-N archetypes
   - `create_win_matrix_heatmap.py` – annotated heatmap visualization
   - `create_card_winrates.py` – per-card, per-copy winrates for each archetype (writes to `card_winrates/`)
+  - `tools/publish_docs.py` – copies generated event reports and heatmaps into `docs/` for GitHub Pages
   - `verify_matchup.py` – CLI to verify head-to-head symmetry and counts
 - `tools/` – maintainer-only diagnostic scripts (not required for end users)
 - `utils/` – API helpers and data utilities
@@ -138,5 +156,11 @@ In CI, pass MELEE_COOKIE via repository secrets; do not hardcode or commit it.
 - Optional card-winrate report toggles:
   - `CARD_WINRATES_HTML=0` disables HTML report generation (CSV output is still written).
   - `CARD_WINRATES_OPEN_HTML=1` auto-opens the HTML index page after generation.
+- `create_win_matrix_heatmap.py` writes the tournament heatmap PNG into `data/<EVENT_NAME>/`; `tools/publish_docs.py` copies that image into the published tournament folder alongside the HTML report.
+- When you publish, the site layout becomes:
+  - `docs/index.html` for the tournament list
+  - `docs/<EVENT-SLUG>/index.html` for the tournament landing page
+  - `docs/<EVENT-SLUG>/card_winrates_html/index.html` for the card-winrate report index
+  - `docs/<EVENT-SLUG>/heatmaps/` for the copied heatmap PNG(s)
 
 License: MIT
