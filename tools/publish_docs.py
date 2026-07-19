@@ -173,7 +173,6 @@ def _build_tournament_page(record: TournamentRecord) -> str:
                 <div class="meta">Published: {escape(record.published_at)} | Slug: {escape(record.slug)}</div>
             </div>
             <div class="toolbar">
-                <a class="button" href="{_url(record.card_winrates_index)}">Open card winrates</a>
                 <a class="button secondary" href="../index.html">Back to tournament index</a>
             </div>
             <div class="content">
@@ -197,19 +196,14 @@ def _build_root_index(records: Sequence[TournamentRecord]) -> str:
     rows = []
     for record in records:
         event_page_link = _url(f"{record.slug}/index.html")
-        card_link = _url(f"{record.slug}/card_winrates_html/index.html")
-        heatmap_link = _url(f"{record.slug}/{record.heatmaps[0]}") if record.heatmaps else ""
-        heatmap_cell = f'<a href="{heatmap_link}">Heatmap</a>' if heatmap_link else "-"
         rows.append(
             "<tr>"
             f'<td><a href="{event_page_link}">{escape(record.event_name)}</a></td>'
-            f'<td><a href="{card_link}">Card Winrates</a></td>'
-            f"<td>{heatmap_cell}</td>"
             f"<td>{escape(record.published_at)}</td>"
             "</tr>"
         )
 
-    body_rows = "\n".join(rows) if rows else "<tr><td colspan=4>No tournaments have been published yet.</td></tr>"
+    body_rows = "\n".join(rows) if rows else "<tr><td colspan=2>No tournaments have been published yet.</td></tr>"
 
     return f"""<!doctype html>
 <html lang="en">
@@ -250,8 +244,6 @@ def _build_root_index(records: Sequence[TournamentRecord]) -> str:
                 <thead>
                     <tr>
                         <th>Tournament</th>
-                        <th>Card Winrates</th>
-                        <th>Heatmap</th>
                         <th>Published</th>
                     </tr>
                 </thead>

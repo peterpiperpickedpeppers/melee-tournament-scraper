@@ -44,7 +44,7 @@ python tools/publish_docs.py --event "RC Houston 2025"
 python tools/publish_docs.py --event "RC Houston 2025" --event "PT Marvel 2026"
 ```
 
-The published site uses one folder per tournament at `docs/<EVENT-SLUG>/`, with a root `docs/index.html` that lists tournaments and links to each event page.
+The published site uses one folder per tournament at `docs/<EVENT-SLUG>/`, with a root `docs/index.html` that lists tournaments and links to each event page. Open a tournament page to see the heatmap first, then follow the card-winrate link from there.
 
 ---
 

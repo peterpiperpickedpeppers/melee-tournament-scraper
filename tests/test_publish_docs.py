@@ -31,12 +31,15 @@ def test_publish_docs_full_rebuild_creates_event_pages(tmp_path):
 
     assert "PT Marvel 2026" in root_index
     assert "RC Houston 2025" in root_index
+    assert "Card Winrates" not in root_index
+    assert "Heatmap" not in root_index
     assert "card_winrates_html/index.html" in marvel_page
     assert "heatmaps/" in marvel_page
     assert (docs_root / marvel_slug / "card_winrates_html" / "index.html").exists()
     assert (docs_root / marvel_slug / "heatmaps" / "PT Marvel 2026 win matrix heatmap top15.png").exists()
     assert "card_winrates_html/index.html" in houston_page
     assert "heatmaps/" in houston_page
+    assert "Open card winrates" not in root_index
 
 
 def test_publish_docs_selective_publish_preserves_existing_events(tmp_path):
@@ -54,6 +57,8 @@ def test_publish_docs_selective_publish_preserves_existing_events(tmp_path):
     assert "PT Marvel 2026" in root_index
     assert "RC Houston 2025" in root_index
     assert "RC Australia 2025" in root_index
+    assert "Card Winrates" not in root_index
+    assert "Heatmap" not in root_index
 
     australia_slug = _sanitize_slug("RC Australia 2025")
     assert (docs_root / australia_slug / "index.html").exists()
