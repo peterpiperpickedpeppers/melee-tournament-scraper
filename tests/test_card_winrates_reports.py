@@ -1,6 +1,11 @@
 from pathlib import Path
 
+import pandas as pd
+
 from scripts.create_card_winrates import create_all_card_winrates
+from scripts.create_card_winrates import _filter_zero_pilot_rows_for_html
+from scripts.create_card_winrates import _sanitize_slug
+from scripts.card_winrates_per_archetype import archetype_card_copy_winrates
 
 
 def _write_minimal_decklists(event_dir: Path, event_name: str) -> None:
@@ -41,6 +46,19 @@ def test_card_winrates_generates_csv_and_html_by_default(tmp_path, monkeypatch):
     # Index + per-archetype pages.
     assert len(html_files) >= 3
 
+    full_table = archetype_card_copy_winrates(
+        pd.read_csv(event_dir / f"{event_name} decklists.csv"),
+        archetype="Archetype One",
+        loc=None,
+        min_pilots=0,
+        max_copies_cap=4,
+    )
+    filtered = _filter_zero_pilot_rows_for_html(full_table)
+    archetype_one_page = event_dir / "card_winrates_html" / f"{_sanitize_slug('Archetype One')}.html"
+    html_text = archetype_one_page.read_text(encoding="utf-8")
+    assert html_text.count("<tr") == len(filtered) + 1
+    assert filtered["# of Pilots"].gt(0).all()
+
 
 
 def test_card_winrates_can_disable_html_without_affecting_csv(tmp_path, monkeypatch):
@@ -58,3 +76,29 @@ def test_card_winrates_can_disable_html_without_affecting_csv(tmp_path, monkeypa
     assert written
     assert (event_dir / "card_winrates").exists()
     assert not (event_dir / "card_winrates_html" / "index.html").exists()
+
+
+def test_card_winrates_can_show_zero_pilot_rows_when_enabled(tmp_path, monkeypatch):
+    event_name = "Unit Test Event"
+    event_dir = tmp_path / event_name
+    event_dir.mkdir(parents=True)
+    _write_minimal_decklists(event_dir, event_name)
+
+    monkeypatch.setenv("EVENT_DATA_DIR", str(event_dir))
+    monkeypatch.setenv("EVENT_NAME", event_name)
+    monkeypatch.setenv("CARD_WINRATES_HIDE_ZERO_PILOT_ROWS", "0")
+
+    written = create_all_card_winrates()
+
+    assert written
+    full_table = archetype_card_copy_winrates(
+        pd.read_csv(event_dir / f"{event_name} decklists.csv"),
+        archetype="Archetype One",
+        loc=None,
+        min_pilots=0,
+        max_copies_cap=4,
+    )
+    archetype_one_page = event_dir / "card_winrates_html" / f"{_sanitize_slug('Archetype One')}.html"
+    html_text = archetype_one_page.read_text(encoding="utf-8")
+    assert html_text.count("<tr") == len(full_table) + 1
+    assert (full_table["# of Pilots"] == 0).any()

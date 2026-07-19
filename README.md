@@ -156,6 +156,7 @@ In CI, pass MELEE_COOKIE via repository secrets; do not hardcode or commit it.
 - Optional card-winrate report toggles:
   - `CARD_WINRATES_HTML=0` disables HTML report generation (CSV output is still written).
   - `CARD_WINRATES_OPEN_HTML=1` auto-opens the HTML index page after generation.
+  - `CARD_WINRATES_HIDE_ZERO_PILOT_ROWS=0` shows the full copy-count table in HTML, including rows where no pilots played that card count.
 - `create_win_matrix_heatmap.py` writes the tournament heatmap PNG into `data/<EVENT_NAME>/`; `tools/publish_docs.py` copies that image into the published tournament folder alongside the HTML report.
 - When you publish, the site layout becomes:
   - `docs/index.html` for the tournament list

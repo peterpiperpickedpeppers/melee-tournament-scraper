@@ -7,6 +7,9 @@ Reads the event decklists CSV, computes winrates by copy count for each
 unique deck_archetype (including pilots who played 0 copies of a card),
 and writes outputs to data/<EVENT_NAME>/card_winrates/.
 
+The HTML report layer can optionally hide rows where # of Pilots is 0 to
+reduce clutter, while leaving the CSV output exhaustive.
+
 Requires: EVENT_DATA_DIR and EVENT_NAME in the environment (set by main.py),
 and an existing decklists CSV named "<EVENT_NAME> decklists.csv" in EVENT_DATA_DIR.
 """
@@ -150,6 +153,14 @@ def _to_html_table(df: pd.DataFrame) -> str:
                         html_df[col] = pd.to_numeric(html_df[col], errors="coerce").fillna(0).astype(int)
 
         return html_df.to_html(index=False, classes="winrate-table", border=0, escape=True)
+
+
+def _filter_zero_pilot_rows_for_html(df: pd.DataFrame) -> pd.DataFrame:
+    if "# of Pilots" not in df.columns:
+        return df
+
+    pilot_counts = pd.to_numeric(df["# of Pilots"], errors="coerce").fillna(0)
+    return df.loc[pilot_counts > 0].reset_index(drop=True)
 
 
 def _build_archetype_html(event_name: str, archetype: str, table_html: str, generated_at: str) -> str:
@@ -402,6 +413,7 @@ def create_all_card_winrates(min_pilots: int = 0, max_copies_cap: Optional[int] 
     out_dir = event_path / 'card_winrates'
     out_dir.mkdir(parents=True, exist_ok=True)
     html_enabled = _env_flag("CARD_WINRATES_HTML", True)
+    hide_zero_pilot_rows = _env_flag("CARD_WINRATES_HIDE_ZERO_PILOT_ROWS", True)
     open_html = _env_flag("CARD_WINRATES_OPEN_HTML", False)
     html_dir = event_path / 'card_winrates_html'
 
@@ -498,7 +510,8 @@ def create_all_card_winrates(min_pilots: int = 0, max_copies_cap: Optional[int] 
         tbl.to_csv(out_csv, index=False, encoding='utf-8')
         written_files.append(out_csv)
         if html_enabled:
-            tables_by_archetype[archetype] = tbl.copy()
+            html_tbl = _filter_zero_pilot_rows_for_html(tbl) if hide_zero_pilot_rows else tbl.copy()
+            tables_by_archetype[archetype] = html_tbl
         print(f"Wrote {len(tbl)} rows -> {out_csv}")
 
     if html_enabled and tables_by_archetype:
