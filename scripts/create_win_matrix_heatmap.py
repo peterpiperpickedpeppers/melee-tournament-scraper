@@ -14,9 +14,9 @@ from pathlib import Path
 HEATMAP_STYLES = {
     # Softer default palette and text settings for easier readability.
     'soft': {
-        'cmap': 'crest',
+        'cmap': 'vlag_r',
         'font_family': ['Segoe UI', 'Arial', 'sans-serif'],
-        'annot_fontsize': 12,
+        'annot_fontsize': 16,
         'title_fontsize': 16,
         'tick_fontweight': 'normal',
         'linewidths': 0.3,
@@ -90,11 +90,18 @@ def _apply_annotation_colors(ax, mode='auto'):
     if mesh is None:
         return
 
+    # Cells with NaN values (e.g. mirror matchups) are masked out of the mesh
+    # and get no annotation text at all, but they still occupy a slot in
+    # get_facecolors(). Drop those slots so the remaining facecolors line up
+    # 1:1 with ax.texts (which already skips masked cells).
     facecolors = mesh.get_facecolors()
-    for text, rgba in zip(ax.texts, facecolors):
+    mask = np.ma.getmaskarray(mesh.get_array()).ravel()
+    visible_facecolors = facecolors[~mask] if len(mask) == len(facecolors) else facecolors
+
+    for text, rgba in zip(ax.texts, visible_facecolors):
         r, g, b, _ = rgba
         luminance = (0.2126 * r) + (0.7152 * g) + (0.0722 * b)
-        text.set_color('#f7f7f7' if luminance < 0.50 else '#1f1f1f')
+        text.set_color('#f7f7f7' if luminance < 0.55 else '#1f1f1f')
 
 
 def create_win_matrix_heatmap(top_n=15, show=False, style_name='soft'):
