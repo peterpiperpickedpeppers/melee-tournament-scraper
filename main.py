@@ -18,7 +18,11 @@ Behavior:
   8) scripts/create_aggregate_stats.py
   9) scripts/create_win_matrix.py
   10) scripts/create_win_matrix_heatmap.py
+  11) tools/publish_docs.py --event <event-name>
 - Exports environment variables so the scripts write into the event folder.
+- The publish step only refreshes this event's page under docs/; it leaves
+  other already-published tournaments untouched. Commit and push docs/
+  afterward to make it live on GitHub Pages.
 """
 
 from __future__ import annotations
@@ -31,13 +35,13 @@ import time
 from datetime import datetime, timezone
 
 
-def run_script(python_exe: str, module_name: str, env: dict) -> int:
+def run_script(python_exe: str, module_name: str, env: dict, extra_args: list[str] | None = None) -> int:
     """Run a module using `python -m module_name` so package imports resolve.
 
     Returns the subprocess return code.
     """
     print(f"Running module {module_name}...")
-    cmd = [python_exe, "-m", module_name]
+    cmd = [python_exe, "-m", module_name, *(extra_args or [])]
     proc = subprocess.run(cmd, env=env)
     return proc.returncode
 
@@ -125,7 +129,23 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Module {mod} exited with code {rc}. Aborting.")
             return rc
 
+    # Publish this event's report into docs/ for GitHub Pages. Scoped to
+    # --event so other already-published tournaments are left untouched.
+    publish_mod = "tools.publish_docs"
+    start_ts = time.time()
+    rc = run_script(python_exe, publish_mod, env, ["--event", event_name])
+    end_ts = time.time()
+    duration = end_ts - start_ts
+    now = datetime.now(timezone.utc).isoformat()
+    log_line = f"{now} | module={publish_mod} | rc={rc} | duration_s={duration:.3f}"
+    _append_log(logs_dir / "main.log", log_line)
+    print(log_line)
+    if rc != 0:
+        print(f"Module {publish_mod} exited with code {rc}. Aborting.")
+        return rc
+
     print("All scripts completed successfully. Artifacts are in:", event_dir)
+    print("Report published to docs/. Commit and push docs/ to make it live on GitHub Pages.")
     return 0
 
 
