@@ -1,0 +1,3775 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spotlight Dallas 2026 - Izzet Prowess Card Winrates</title>
+    <style>
+        :root {
+            --bg: #f7faf8;
+            --panel: #ffffff;
+            --ink: #1f2a2e;
+            --muted: #5f6f75;
+            --line: #dde6e2;
+        }
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            color: var(--ink);
+            background: linear-gradient(180deg, #ecf4ef 0%, var(--bg) 45%);
+        }
+        .wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+        .header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--line);
+            background: #f4faf6;
+        }
+        h1 { margin: 0; font-size: 22px; }
+        .meta { color: var(--muted); margin-top: 6px; font-size: 13px; }
+        .toolbar {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        input[type="search"] {
+            width: min(420px, 100%);
+            padding: 8px 10px;
+            border: 1px solid #cdd8d2;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .table-wrap { overflow: auto; max-height: 78vh; }
+        table.winrate-table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        table.winrate-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background: #eef5f2;
+            border-bottom: 1px solid #cfdcd6;
+            padding: 10px;
+            text-align: left;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        table.winrate-table td { border-bottom: 1px solid #edf2ef; padding: 9px 10px; }
+        table.winrate-table tbody tr:nth-child(even) { background: #fbfdfc; }
+        table.winrate-table td:nth-child(n+4),
+        table.winrate-table th:nth-child(n+4) { text-align: right; }
+        .footer { padding: 12px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+        a { color: #1e6b59; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="card">
+            <div class="header">
+                <h1>Izzet Prowess Card Winrates by Copy Count</h1>
+                <div class="meta">Event: Spotlight Dallas 2026 | Generated: 2026-09-06 21:42:37 UTC</div>
+            </div>
+            <div class="toolbar">
+                <a href="index.html">Back to index</a>
+                <input id="tableSearch" type="search" placeholder="Filter rows (card name, loc, copies, etc.)" />
+            </div>
+            <div class="table-wrap"><table class="dataframe winrate-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>card</th>
+      <th>loc</th>
+      <th>deck_archetype</th>
+      <th>Copies</th>
+      <th># of Pilots</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Win%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Abrade</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>383</td>
+      <td>399</td>
+      <td>48.98%</td>
+    </tr>
+    <tr>
+      <td>Abrade</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Abrade</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Aether Spellbomb</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Aether Spellbomb</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Alpine Moon</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>404</td>
+      <td>48.86%</td>
+    </tr>
+    <tr>
+      <td>Alpine Moon</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Apostle's Blessing</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Apostle's Blessing</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Arena of Glory</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>405</td>
+      <td>48.80%</td>
+    </tr>
+    <tr>
+      <td>Arena of Glory</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Arid Mesa</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>23</td>
+      <td>86</td>
+      <td>98</td>
+      <td>46.74%</td>
+    </tr>
+    <tr>
+      <td>Arid Mesa</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>14</td>
+      <td>43</td>
+      <td>56</td>
+      <td>43.43%</td>
+    </tr>
+    <tr>
+      <td>Arid Mesa</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>28</td>
+      <td>115</td>
+      <td>122</td>
+      <td>48.52%</td>
+    </tr>
+    <tr>
+      <td>Arid Mesa</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>17</td>
+      <td>79</td>
+      <td>75</td>
+      <td>51.30%</td>
+    </tr>
+    <tr>
+      <td>Arid Mesa</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>13</td>
+      <td>63</td>
+      <td>57</td>
+      <td>52.50%</td>
+    </tr>
+    <tr>
+      <td>Assault Strobe</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>83</td>
+      <td>337</td>
+      <td>355</td>
+      <td>48.70%</td>
+    </tr>
+    <tr>
+      <td>Assault Strobe</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>7</td>
+      <td>29</td>
+      <td>33</td>
+      <td>46.77%</td>
+    </tr>
+    <tr>
+      <td>Assault Strobe</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>5</td>
+      <td>20</td>
+      <td>20</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Assault Strobe</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>79</td>
+      <td>321</td>
+      <td>335</td>
+      <td>48.93%</td>
+    </tr>
+    <tr>
+      <td>Assault Strobe</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>12</td>
+      <td>53</td>
+      <td>56</td>
+      <td>48.62%</td>
+    </tr>
+    <tr>
+      <td>Assault Strobe</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>4</td>
+      <td>12</td>
+      <td>17</td>
+      <td>41.38%</td>
+    </tr>
+    <tr>
+      <td>Bilbo, Thief in the Night</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Bilbo, Thief in the Night</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Blood Crypt</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>92</td>
+      <td>373</td>
+      <td>396</td>
+      <td>48.50%</td>
+    </tr>
+    <tr>
+      <td>Blood Crypt</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>3</td>
+      <td>13</td>
+      <td>12</td>
+      <td>52.00%</td>
+    </tr>
+    <tr>
+      <td>Blood Moon</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Blood Moon</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Bloodstained Mire</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>16</td>
+      <td>68</td>
+      <td>74</td>
+      <td>47.89%</td>
+    </tr>
+    <tr>
+      <td>Bloodstained Mire</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>8</td>
+      <td>40</td>
+      <td>37</td>
+      <td>51.95%</td>
+    </tr>
+    <tr>
+      <td>Bloodstained Mire</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>23</td>
+      <td>86</td>
+      <td>102</td>
+      <td>45.74%</td>
+    </tr>
+    <tr>
+      <td>Bloodstained Mire</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>24</td>
+      <td>87</td>
+      <td>98</td>
+      <td>47.03%</td>
+    </tr>
+    <tr>
+      <td>Bloodstained Mire</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>24</td>
+      <td>105</td>
+      <td>97</td>
+      <td>51.98%</td>
+    </tr>
+    <tr>
+      <td>Boltwave</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>407</td>
+      <td>48.68%</td>
+    </tr>
+    <tr>
+      <td>Boltwave</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Boomerang Basics</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>89</td>
+      <td>349</td>
+      <td>384</td>
+      <td>47.61%</td>
+    </tr>
+    <tr>
+      <td>Boomerang Basics</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Boomerang Basics</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>3</td>
+      <td>18</td>
+      <td>13</td>
+      <td>58.06%</td>
+    </tr>
+    <tr>
+      <td>Boomerang Basics</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>2</td>
+      <td>14</td>
+      <td>7</td>
+      <td>66.67%</td>
+    </tr>
+    <tr>
+      <td>Breeding Pool</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Breeding Pool</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Brotherhood's End</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Brotherhood's End</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Callous Sell-Sword // Burn Together</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>382</td>
+      <td>404</td>
+      <td>48.60%</td>
+    </tr>
+    <tr>
+      <td>Callous Sell-Sword // Burn Together</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Cascade Bluffs</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>405</td>
+      <td>48.80%</td>
+    </tr>
+    <tr>
+      <td>Cascade Bluffs</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Cavern of Souls</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Cavern of Souls</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Consider</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Consider</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Consign to Memory</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+      <td>13</td>
+      <td>27.78%</td>
+    </tr>
+    <tr>
+      <td>Consign to Memory</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>5</td>
+      <td>7</td>
+      <td>18</td>
+      <td>28.00%</td>
+    </tr>
+    <tr>
+      <td>Consign to Memory</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>49</td>
+      <td>202</td>
+      <td>215</td>
+      <td>48.44%</td>
+    </tr>
+    <tr>
+      <td>Consign to Memory</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>38</td>
+      <td>172</td>
+      <td>162</td>
+      <td>51.50%</td>
+    </tr>
+    <tr>
+      <td>Cori-Steel Cutter</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>2</td>
+      <td>5</td>
+      <td>10</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Cori-Steel Cutter</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>93</td>
+      <td>381</td>
+      <td>398</td>
+      <td>48.91%</td>
+    </tr>
+    <tr>
+      <td>Coruscation Mage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>383</td>
+      <td>399</td>
+      <td>48.98%</td>
+    </tr>
+    <tr>
+      <td>Coruscation Mage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Coruscation Mage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Curiosity</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>405</td>
+      <td>48.80%</td>
+    </tr>
+    <tr>
+      <td>Curiosity</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Damping Sphere</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Damping Sphere</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Disdainful Stroke</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Disdainful Stroke</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Dragon's Rage Channeler</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>10</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Dragon's Rage Channeler</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>93</td>
+      <td>381</td>
+      <td>398</td>
+      <td>48.91%</td>
+    </tr>
+    <tr>
+      <td>Eddymurk Crab</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>378</td>
+      <td>400</td>
+      <td>48.59%</td>
+    </tr>
+    <tr>
+      <td>Eddymurk Crab</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>2</td>
+      <td>8</td>
+      <td>8</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Elusive Otter // Grove's Bounty</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>383</td>
+      <td>399</td>
+      <td>48.98%</td>
+    </tr>
+    <tr>
+      <td>Elusive Otter // Grove's Bounty</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Elusive Otter // Grove's Bounty</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Emry, Lurker of the Loch</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Emry, Lurker of the Loch</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>End the Festivities</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>382</td>
+      <td>403</td>
+      <td>48.66%</td>
+    </tr>
+    <tr>
+      <td>End the Festivities</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Engineered Explosives</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Engineered Explosives</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Experimental Synthesizer</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Experimental Synthesizer</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Expressive Iteration</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>7</td>
+      <td>24</td>
+      <td>28</td>
+      <td>46.15%</td>
+    </tr>
+    <tr>
+      <td>Expressive Iteration</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>9</td>
+      <td>45</td>
+      <td>40</td>
+      <td>52.94%</td>
+    </tr>
+    <tr>
+      <td>Expressive Iteration</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>19</td>
+      <td>98</td>
+      <td>84</td>
+      <td>53.85%</td>
+    </tr>
+    <tr>
+      <td>Expressive Iteration</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>60</td>
+      <td>219</td>
+      <td>256</td>
+      <td>46.11%</td>
+    </tr>
+    <tr>
+      <td>Expressive Iteration</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>85</td>
+      <td>328</td>
+      <td>365</td>
+      <td>47.33%</td>
+    </tr>
+    <tr>
+      <td>Expressive Iteration</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>4</td>
+      <td>34</td>
+      <td>18</td>
+      <td>65.38%</td>
+    </tr>
+    <tr>
+      <td>Expressive Iteration</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>3</td>
+      <td>9</td>
+      <td>12</td>
+      <td>42.86%</td>
+    </tr>
+    <tr>
+      <td>Expressive Iteration</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>3</td>
+      <td>15</td>
+      <td>13</td>
+      <td>53.57%</td>
+    </tr>
+    <tr>
+      <td>Fabled Passage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Fabled Passage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Fiery Islet</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>6</td>
+      <td>21</td>
+      <td>26</td>
+      <td>44.68%</td>
+    </tr>
+    <tr>
+      <td>Fiery Islet</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>20</td>
+      <td>81</td>
+      <td>84</td>
+      <td>49.09%</td>
+    </tr>
+    <tr>
+      <td>Fiery Islet</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>67</td>
+      <td>278</td>
+      <td>289</td>
+      <td>49.03%</td>
+    </tr>
+    <tr>
+      <td>Fiery Islet</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Fiery Islet</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Fire Magic</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>92</td>
+      <td>372</td>
+      <td>396</td>
+      <td>48.44%</td>
+    </tr>
+    <tr>
+      <td>Fire Magic</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>2</td>
+      <td>9</td>
+      <td>8</td>
+      <td>52.94%</td>
+    </tr>
+    <tr>
+      <td>Fire Magic</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Flame of Anor</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Flame of Anor</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Flare of Denial</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Flare of Denial</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Flashback</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>85</td>
+      <td>356</td>
+      <td>367</td>
+      <td>49.24%</td>
+    </tr>
+    <tr>
+      <td>Flashback</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>6</td>
+      <td>18</td>
+      <td>25</td>
+      <td>41.86%</td>
+    </tr>
+    <tr>
+      <td>Flashback</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>4</td>
+      <td>12</td>
+      <td>16</td>
+      <td>42.86%</td>
+    </tr>
+    <tr>
+      <td>Flooded Strand</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>92</td>
+      <td>376</td>
+      <td>394</td>
+      <td>48.83%</td>
+    </tr>
+    <tr>
+      <td>Flooded Strand</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>10</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Flooded Strand</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Flow State</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Flow State</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Force of Negation</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>378</td>
+      <td>398</td>
+      <td>48.71%</td>
+    </tr>
+    <tr>
+      <td>Force of Negation</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Force of Negation</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Force of Negation</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Force of Negation</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Ghost Vacuum</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Ghost Vacuum</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Gut Shot</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Gut Shot</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Harbinger of the Seas</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Harbinger of the Seas</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Haywire Mite</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Haywire Mite</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Hexing Squelcher</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>405</td>
+      <td>48.80%</td>
+    </tr>
+    <tr>
+      <td>Hexing Squelcher</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Into the Flood Maw</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>92</td>
+      <td>370</td>
+      <td>396</td>
+      <td>48.30%</td>
+    </tr>
+    <tr>
+      <td>Into the Flood Maw</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>3</td>
+      <td>16</td>
+      <td>12</td>
+      <td>57.14%</td>
+    </tr>
+    <tr>
+      <td>Into the Flood Maw</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>67</td>
+      <td>261</td>
+      <td>290</td>
+      <td>47.37%</td>
+    </tr>
+    <tr>
+      <td>Into the Flood Maw</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>20</td>
+      <td>94</td>
+      <td>87</td>
+      <td>51.93%</td>
+    </tr>
+    <tr>
+      <td>Into the Flood Maw</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>7</td>
+      <td>31</td>
+      <td>28</td>
+      <td>52.54%</td>
+    </tr>
+    <tr>
+      <td>Into the Flood Maw</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Island</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>87</td>
+      <td>360</td>
+      <td>375</td>
+      <td>48.98%</td>
+    </tr>
+    <tr>
+      <td>Island</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>5</td>
+      <td>18</td>
+      <td>20</td>
+      <td>47.37%</td>
+    </tr>
+    <tr>
+      <td>Island</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Island</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Island</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Key to the Side-Door</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Key to the Side-Door</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Lava Dart</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>3</td>
+      <td>10</td>
+      <td>14</td>
+      <td>41.67%</td>
+    </tr>
+    <tr>
+      <td>Lava Dart</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>92</td>
+      <td>376</td>
+      <td>394</td>
+      <td>48.83%</td>
+    </tr>
+    <tr>
+      <td>Lava Spike</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>407</td>
+      <td>48.68%</td>
+    </tr>
+    <tr>
+      <td>Lava Spike</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Lightning Bolt</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Lightning Bolt</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>2</td>
+      <td>8</td>
+      <td>10</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Lightning Bolt</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>92</td>
+      <td>376</td>
+      <td>394</td>
+      <td>48.83%</td>
+    </tr>
+    <tr>
+      <td>Loki, God of Mischief</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Loki, God of Mischief</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Manamorphose</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Manamorphose</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Meltdown</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>13</td>
+      <td>43</td>
+      <td>54</td>
+      <td>44.33%</td>
+    </tr>
+    <tr>
+      <td>Meltdown</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>23</td>
+      <td>94</td>
+      <td>102</td>
+      <td>47.96%</td>
+    </tr>
+    <tr>
+      <td>Meltdown</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>57</td>
+      <td>243</td>
+      <td>243</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Meltdown</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Meltdown</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Metallic Rebuke</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Metallic Rebuke</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Minamo, School at Water's Edge</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Minamo, School at Water's Edge</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Mishra's Bauble</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Mishra's Bauble</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Mistrise Village</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Mistrise Village</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Misty Rainforest</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Misty Rainforest</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Monastery Swiftspear</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>3</td>
+      <td>10</td>
+      <td>14</td>
+      <td>41.67%</td>
+    </tr>
+    <tr>
+      <td>Monastery Swiftspear</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>92</td>
+      <td>376</td>
+      <td>394</td>
+      <td>48.83%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Growth</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Growth</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Rage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>79</td>
+      <td>309</td>
+      <td>336</td>
+      <td>47.91%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Rage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>7</td>
+      <td>47</td>
+      <td>36</td>
+      <td>56.63%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Rage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>6</td>
+      <td>15</td>
+      <td>23</td>
+      <td>39.47%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Rage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>3</td>
+      <td>15</td>
+      <td>13</td>
+      <td>53.57%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Rage</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>381</td>
+      <td>398</td>
+      <td>48.91%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Rage</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Monstrous Rage</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Mountain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>8</td>
+      <td>20.00%</td>
+    </tr>
+    <tr>
+      <td>Mountain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>4</td>
+      <td>16</td>
+      <td>16</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Mountain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>7</td>
+      <td>38</td>
+      <td>31</td>
+      <td>55.07%</td>
+    </tr>
+    <tr>
+      <td>Mountain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>79</td>
+      <td>322</td>
+      <td>340</td>
+      <td>48.64%</td>
+    </tr>
+    <tr>
+      <td>Mountain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>3</td>
+      <td>8</td>
+      <td>13</td>
+      <td>38.10%</td>
+    </tr>
+    <tr>
+      <td>Mox Amber</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Mox Amber</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Mox Opal</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Mox Opal</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Murktide Regent</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Murktide Regent</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Murktide Regent</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>81</td>
+      <td>344</td>
+      <td>353</td>
+      <td>49.35%</td>
+    </tr>
+    <tr>
+      <td>Murktide Regent</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>9</td>
+      <td>33</td>
+      <td>35</td>
+      <td>48.53%</td>
+    </tr>
+    <tr>
+      <td>Murktide Regent</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>5</td>
+      <td>9</td>
+      <td>20</td>
+      <td>31.03%</td>
+    </tr>
+    <tr>
+      <td>Mutagenic Growth</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>9</td>
+      <td>37</td>
+      <td>42</td>
+      <td>46.84%</td>
+    </tr>
+    <tr>
+      <td>Mutagenic Growth</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>2</td>
+      <td>17</td>
+      <td>7</td>
+      <td>70.83%</td>
+    </tr>
+    <tr>
+      <td>Mutagenic Growth</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>12</td>
+      <td>40</td>
+      <td>47</td>
+      <td>45.98%</td>
+    </tr>
+    <tr>
+      <td>Mutagenic Growth</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>72</td>
+      <td>292</td>
+      <td>312</td>
+      <td>48.34%</td>
+    </tr>
+    <tr>
+      <td>Mystical Dispute</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>85</td>
+      <td>333</td>
+      <td>363</td>
+      <td>47.84%</td>
+    </tr>
+    <tr>
+      <td>Mystical Dispute</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>7</td>
+      <td>36</td>
+      <td>32</td>
+      <td>52.94%</td>
+    </tr>
+    <tr>
+      <td>Mystical Dispute</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>3</td>
+      <td>17</td>
+      <td>13</td>
+      <td>56.67%</td>
+    </tr>
+    <tr>
+      <td>Obsidian Charmaw</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>369</td>
+      <td>401</td>
+      <td>47.92%</td>
+    </tr>
+    <tr>
+      <td>Obsidian Charmaw</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>2</td>
+      <td>17</td>
+      <td>7</td>
+      <td>70.83%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>379</td>
+      <td>400</td>
+      <td>48.65%</td>
+    </tr>
+    <tr>
+      <td>Otawara, Soaring City</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>2</td>
+      <td>7</td>
+      <td>8</td>
+      <td>46.67%</td>
+    </tr>
+    <tr>
+      <td>Pick Your Poison</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Pick Your Poison</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Pithing Needle</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Pithing Needle</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Poison Dart Frog</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>382</td>
+      <td>404</td>
+      <td>48.60%</td>
+    </tr>
+    <tr>
+      <td>Poison Dart Frog</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Polluted Delta</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Polluted Delta</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Preordain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Preordain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Preordain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>92</td>
+      <td>384</td>
+      <td>398</td>
+      <td>49.10%</td>
+    </tr>
+    <tr>
+      <td>Prismari Charm</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>92</td>
+      <td>381</td>
+      <td>395</td>
+      <td>49.10%</td>
+    </tr>
+    <tr>
+      <td>Prismari Charm</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>9</td>
+      <td>25.00%</td>
+    </tr>
+    <tr>
+      <td>Prismari Charm</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Prismari Charm</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>381</td>
+      <td>400</td>
+      <td>48.78%</td>
+    </tr>
+    <tr>
+      <td>Prismari Charm</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Prismari Charm</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>20.00%</td>
+    </tr>
+    <tr>
+      <td>Prismatic Ending</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>382</td>
+      <td>403</td>
+      <td>48.66%</td>
+    </tr>
+    <tr>
+      <td>Prismatic Ending</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Pyrite Spellbomb</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Pyrite Spellbomb</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Riverpyre Verge</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Riverpyre Verge</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Sacred Foundry</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>382</td>
+      <td>403</td>
+      <td>48.66%</td>
+    </tr>
+    <tr>
+      <td>Sacred Foundry</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Scalding Tarn</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>9</td>
+      <td>34</td>
+      <td>37</td>
+      <td>47.89%</td>
+    </tr>
+    <tr>
+      <td>Scalding Tarn</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>8</td>
+      <td>33</td>
+      <td>33</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Scalding Tarn</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>18</td>
+      <td>87</td>
+      <td>92</td>
+      <td>48.60%</td>
+    </tr>
+    <tr>
+      <td>Scalding Tarn</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>32</td>
+      <td>143</td>
+      <td>134</td>
+      <td>51.62%</td>
+    </tr>
+    <tr>
+      <td>Scalding Tarn</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>28</td>
+      <td>89</td>
+      <td>112</td>
+      <td>44.28%</td>
+    </tr>
+    <tr>
+      <td>Season of the Bold</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Season of the Bold</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Shadowspear</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Shadowspear</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Shattering Spree</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>404</td>
+      <td>48.67%</td>
+    </tr>
+    <tr>
+      <td>Shattering Spree</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>42.86%</td>
+    </tr>
+    <tr>
+      <td>Sink into Stupor // Soporific Springs</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>379</td>
+      <td>400</td>
+      <td>48.65%</td>
+    </tr>
+    <tr>
+      <td>Sink into Stupor // Soporific Springs</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Sink into Stupor // Soporific Springs</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Sink into Stupor // Soporific Springs</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Sink into Stupor // Soporific Springs</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Skateboard</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Skateboard</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Skullcrack</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Skullcrack</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Slickshot Show-Off</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>5</td>
+      <td>16</td>
+      <td>22</td>
+      <td>42.11%</td>
+    </tr>
+    <tr>
+      <td>Slickshot Show-Off</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>3</td>
+      <td>21</td>
+      <td>11</td>
+      <td>65.62%</td>
+    </tr>
+    <tr>
+      <td>Slickshot Show-Off</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>2</td>
+      <td>5</td>
+      <td>7</td>
+      <td>41.67%</td>
+    </tr>
+    <tr>
+      <td>Slickshot Show-Off</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>85</td>
+      <td>344</td>
+      <td>368</td>
+      <td>48.31%</td>
+    </tr>
+    <tr>
+      <td>Slickshot Show-Off</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Slickshot Show-Off</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Mountain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>92</td>
+      <td>384</td>
+      <td>397</td>
+      <td>49.17%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Mountain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Snow-Covered Mountain</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>92</td>
+      <td>380</td>
+      <td>397</td>
+      <td>48.91%</td>
+    </tr>
+    <tr>
+      <td>Soul-Guide Lantern</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>11</td>
+      <td>35.29%</td>
+    </tr>
+    <tr>
+      <td>Spell Pierce</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>377</td>
+      <td>403</td>
+      <td>48.33%</td>
+    </tr>
+    <tr>
+      <td>Spell Pierce</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>5</td>
+      <td>64.29%</td>
+    </tr>
+    <tr>
+      <td>Spell Pierce</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>14</td>
+      <td>51</td>
+      <td>59</td>
+      <td>46.36%</td>
+    </tr>
+    <tr>
+      <td>Spell Pierce</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>34</td>
+      <td>145</td>
+      <td>152</td>
+      <td>48.82%</td>
+    </tr>
+    <tr>
+      <td>Spell Pierce</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>45</td>
+      <td>183</td>
+      <td>189</td>
+      <td>49.19%</td>
+    </tr>
+    <tr>
+      <td>Spell Pierce</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>2</td>
+      <td>7</td>
+      <td>8</td>
+      <td>46.67%</td>
+    </tr>
+    <tr>
+      <td>Spell Snare</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>372</td>
+      <td>399</td>
+      <td>48.25%</td>
+    </tr>
+    <tr>
+      <td>Spell Snare</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>5</td>
+      <td>64.29%</td>
+    </tr>
+    <tr>
+      <td>Spell Snare</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Spell Snare</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>13</td>
+      <td>42</td>
+      <td>54</td>
+      <td>43.75%</td>
+    </tr>
+    <tr>
+      <td>Spell Snare</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>11</td>
+      <td>44</td>
+      <td>43</td>
+      <td>50.57%</td>
+    </tr>
+    <tr>
+      <td>Spell Snare</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>56</td>
+      <td>248</td>
+      <td>247</td>
+      <td>50.10%</td>
+    </tr>
+    <tr>
+      <td>Spell Snare</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>15</td>
+      <td>52</td>
+      <td>64</td>
+      <td>44.83%</td>
+    </tr>
+    <tr>
+      <td>Spider-Sense</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>382</td>
+      <td>403</td>
+      <td>48.66%</td>
+    </tr>
+    <tr>
+      <td>Spider-Sense</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Spirebluff Canal</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>374</td>
+      <td>397</td>
+      <td>48.51%</td>
+    </tr>
+    <tr>
+      <td>Spirebluff Canal</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>9</td>
+      <td>5</td>
+      <td>64.29%</td>
+    </tr>
+    <tr>
+      <td>Spirebluff Canal</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Steam Vents</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>2</td>
+      <td>8</td>
+      <td>10</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Steam Vents</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>85</td>
+      <td>338</td>
+      <td>363</td>
+      <td>48.22%</td>
+    </tr>
+    <tr>
+      <td>Steam Vents</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>8</td>
+      <td>40</td>
+      <td>35</td>
+      <td>53.33%</td>
+    </tr>
+    <tr>
+      <td>Stern Scolding</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>377</td>
+      <td>403</td>
+      <td>48.33%</td>
+    </tr>
+    <tr>
+      <td>Stern Scolding</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>9</td>
+      <td>5</td>
+      <td>64.29%</td>
+    </tr>
+    <tr>
+      <td>Stomping Ground</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>381</td>
+      <td>398</td>
+      <td>48.91%</td>
+    </tr>
+    <tr>
+      <td>Stomping Ground</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>10</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Stormcarved Coast</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Stormcarved Coast</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Stormchaser's Talent</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>80</td>
+      <td>314</td>
+      <td>344</td>
+      <td>47.72%</td>
+    </tr>
+    <tr>
+      <td>Stormchaser's Talent</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>7</td>
+      <td>32</td>
+      <td>31</td>
+      <td>50.79%</td>
+    </tr>
+    <tr>
+      <td>Stormchaser's Talent</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>3</td>
+      <td>17</td>
+      <td>10</td>
+      <td>62.96%</td>
+    </tr>
+    <tr>
+      <td>Stormchaser's Talent</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>2</td>
+      <td>13</td>
+      <td>9</td>
+      <td>59.09%</td>
+    </tr>
+    <tr>
+      <td>Stormchaser's Talent</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>3</td>
+      <td>10</td>
+      <td>14</td>
+      <td>41.67%</td>
+    </tr>
+    <tr>
+      <td>Subtlety</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>381</td>
+      <td>404</td>
+      <td>48.54%</td>
+    </tr>
+    <tr>
+      <td>Subtlety</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Surgical Extraction</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>385</td>
+      <td>405</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Surgical Extraction</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>25.00%</td>
+    </tr>
+    <tr>
+      <td>Surgical Extraction</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>25</td>
+      <td>78</td>
+      <td>96</td>
+      <td>44.83%</td>
+    </tr>
+    <tr>
+      <td>Surgical Extraction</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>13</td>
+      <td>49</td>
+      <td>52</td>
+      <td>48.51%</td>
+    </tr>
+    <tr>
+      <td>Surgical Extraction</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>57</td>
+      <td>259</td>
+      <td>260</td>
+      <td>49.90%</td>
+    </tr>
+    <tr>
+      <td>Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Teach by Example</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>405</td>
+      <td>48.80%</td>
+    </tr>
+    <tr>
+      <td>Teach by Example</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Temur Battle Rage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>405</td>
+      <td>48.80%</td>
+    </tr>
+    <tr>
+      <td>Temur Battle Rage</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Temur Battle Rage</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>386</td>
+      <td>405</td>
+      <td>48.80%</td>
+    </tr>
+    <tr>
+      <td>Temur Battle Rage</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Thoughtseize</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>377</td>
+      <td>403</td>
+      <td>48.33%</td>
+    </tr>
+    <tr>
+      <td>Thoughtseize</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>9</td>
+      <td>5</td>
+      <td>64.29%</td>
+    </tr>
+    <tr>
+      <td>Thundering Falls</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>3</td>
+      <td>6</td>
+      <td>13</td>
+      <td>31.58%</td>
+    </tr>
+    <tr>
+      <td>Thundering Falls</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>92</td>
+      <td>380</td>
+      <td>395</td>
+      <td>49.03%</td>
+    </tr>
+    <tr>
+      <td>Thundertrap Trainer</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Thundertrap Trainer</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Tishana's Tidebinder</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Tishana's Tidebinder</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>370</td>
+      <td>401</td>
+      <td>47.99%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>12</td>
+      <td>3</td>
+      <td>80.00%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>62</td>
+      <td>273</td>
+      <td>278</td>
+      <td>49.55%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>15</td>
+      <td>60</td>
+      <td>61</td>
+      <td>49.59%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>15</td>
+      <td>45</td>
+      <td>56</td>
+      <td>44.55%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+      <td>8</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Tormod's Crypt</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>71</td>
+      <td>273</td>
+      <td>301</td>
+      <td>47.56%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>16</td>
+      <td>81</td>
+      <td>72</td>
+      <td>52.94%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>4</td>
+      <td>16</td>
+      <td>18</td>
+      <td>47.06%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>55.56%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>3</td>
+      <td>11</td>
+      <td>13</td>
+      <td>45.83%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>7</td>
+      <td>21</td>
+      <td>30</td>
+      <td>41.18%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>42.86%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>9</td>
+      <td>35</td>
+      <td>34</td>
+      <td>50.72%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>42</td>
+      <td>204</td>
+      <td>186</td>
+      <td>52.31%</td>
+    </tr>
+    <tr>
+      <td>Unholy Heat</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>36</td>
+      <td>123</td>
+      <td>154</td>
+      <td>44.40%</td>
+    </tr>
+    <tr>
+      <td>Urza's Saga</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>384</td>
+      <td>404</td>
+      <td>48.73%</td>
+    </tr>
+    <tr>
+      <td>Urza's Saga</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Valley Floodcaller</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Valley Floodcaller</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>90</td>
+      <td>378</td>
+      <td>389</td>
+      <td>49.28%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>8</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>7</td>
+      <td>22.22%</td>
+    </tr>
+    <tr>
+      <td>Vexing Bauble</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Violent Outburst</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>378</td>
+      <td>401</td>
+      <td>48.52%</td>
+    </tr>
+    <tr>
+      <td>Violent Outburst</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>7</td>
+      <td>53.33%</td>
+    </tr>
+    <tr>
+      <td>Violent Urge</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>22</td>
+      <td>91</td>
+      <td>91</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <td>Violent Urge</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>16</td>
+      <td>49</td>
+      <td>66</td>
+      <td>42.61%</td>
+    </tr>
+    <tr>
+      <td>Violent Urge</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>56</td>
+      <td>244</td>
+      <td>247</td>
+      <td>49.69%</td>
+    </tr>
+    <tr>
+      <td>Violent Urge</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Violent Urge</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>93</td>
+      <td>386</td>
+      <td>401</td>
+      <td>49.05%</td>
+    </tr>
+    <tr>
+      <td>Violent Urge</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Violent Urge</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Wear // Tear</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>382</td>
+      <td>403</td>
+      <td>48.66%</td>
+    </tr>
+    <tr>
+      <td>Wear // Tear</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <td>Wildfire Howl</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Wildfire Howl</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Witchstalker Frenzy</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Witchstalker Frenzy</td>
+      <td>side</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Wizard's Staff</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>94</td>
+      <td>383</td>
+      <td>402</td>
+      <td>48.79%</td>
+    </tr>
+    <tr>
+      <td>Wizard's Staff</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Wooded Foothills</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>0</td>
+      <td>22</td>
+      <td>87</td>
+      <td>86</td>
+      <td>50.29%</td>
+    </tr>
+    <tr>
+      <td>Wooded Foothills</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>1</td>
+      <td>9</td>
+      <td>19</td>
+      <td>38</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>Wooded Foothills</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>2</td>
+      <td>22</td>
+      <td>111</td>
+      <td>96</td>
+      <td>53.62%</td>
+    </tr>
+    <tr>
+      <td>Wooded Foothills</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>3</td>
+      <td>25</td>
+      <td>105</td>
+      <td>113</td>
+      <td>48.17%</td>
+    </tr>
+    <tr>
+      <td>Wooded Foothills</td>
+      <td>main</td>
+      <td>Izzet Prowess</td>
+      <td>4</td>
+      <td>17</td>
+      <td>64</td>
+      <td>75</td>
+      <td>46.04%</td>
+    </tr>
+  </tbody>
+</table></div>
+            <div class="footer">Tip: click column headers to sort.</div>
+        </div>
+    </div>
+    <script>
+        const table = document.querySelector('table.winrate-table');
+        const rows = Array.from(table.tBodies[0].rows);
+        const search = document.getElementById('tableSearch');
+
+        search.addEventListener('input', () => {
+            const q = search.value.toLowerCase().trim();
+            for (const r of rows) {
+                r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none';
+            }
+        });
+
+        function toSortValue(text) {
+            const cleaned = text.replace('%', '').replace(/,/g, '').trim();
+            const n = Number(cleaned);
+            return Number.isNaN(n) ? text.toLowerCase() : n;
+        }
+
+        Array.from(table.tHead.rows[0].cells).forEach((th, idx) => {
+            let asc = true;
+            th.addEventListener('click', () => {
+                rows.sort((a, b) => {
+                    const av = toSortValue(a.cells[idx]?.textContent || '');
+                    const bv = toSortValue(b.cells[idx]?.textContent || '');
+                    if (av < bv) return asc ? -1 : 1;
+                    if (av > bv) return asc ? 1 : -1;
+                    return 0;
+                });
+                asc = !asc;
+                for (const r of rows) table.tBodies[0].appendChild(r);
+            });
+        });
+
+        const pctColIndex = Array.from(table.tHead.rows[0].cells).findIndex(
+            (c) => c.textContent.trim() === 'Win%'
+        );
+        if (pctColIndex >= 0) {
+            for (const r of rows) {
+                const cell = r.cells[pctColIndex];
+                const v = Number((cell.textContent || '').replace('%', '').trim());
+                if (!Number.isNaN(v)) {
+                    const hue = Math.max(0, Math.min(120, v * 1.2));
+                    cell.style.backgroundColor = `hsl(${hue} 70% 88%)`;
+                    cell.style.fontWeight = '600';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
